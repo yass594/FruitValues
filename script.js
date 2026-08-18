@@ -280,41 +280,536 @@ if (addFruitButton) {
 
 
 /* =========================================================
-   TRADE CALCULATOR
+   TRADE CALCULATOR — SELECTEUR AVEC IMAGES
 ========================================================= */
 
-const yourTradeList =
-  document.getElementById("yourTradeList");
+const yourTradeList = document.getElementById("yourTradeList");
+const theirTradeList = document.getElementById("theirTradeList");
 
-const theirTradeList =
-  document.getElementById("theirTradeList");
+const yourTotal = document.getElementById("yourTotal");
+const theirTotal = document.getElementById("theirTotal");
 
-const yourTotal =
-  document.getElementById("yourTotal");
+const addYourFruit = document.getElementById("addYourFruit");
+const addTheirFruit = document.getElementById("addTheirFruit");
 
-const theirTotal =
-  document.getElementById("theirTotal");
-
-const addYourFruit =
-  document.getElementById("addYourFruit");
-
-const addTheirFruit =
-  document.getElementById("addTheirFruit");
-
-const calculateTrade =
-  document.getElementById("calculateTrade");
-
-const tradeResult =
-  document.getElementById("tradeResult");
+const calculateTrade = document.getElementById("calculateTrade");
+const tradeResult = document.getElementById("tradeResult");
 
 
 /* =========================================================
-   AJOUTER UNE LIGNE
+   COTE ACTUELLE
 ========================================================= */
 
-function addTradeFruit(container) {
+let currentTradeContainer = null;
 
-  if (!container) return;
+
+/* =========================================================
+   CREER LE SELECTEUR
+========================================================= */
+
+const selectorOverlay = document.createElement("div");
+
+selectorOverlay.className = "trade-selector-overlay";
+
+selectorOverlay.style.display = "none";
+
+selectorOverlay.innerHTML = `
+
+  <div class="trade-selector">
+
+    <div class="trade-selector-header">
+
+      <div>
+        <span>TRADE CALCULATOR</span>
+        <h3>Choisir un élément</h3>
+      </div>
+
+      <button
+        type="button"
+        id="closeTradeSelector">
+        ✕
+      </button>
+
+    </div>
+
+
+    <div class="trade-selector-tabs">
+
+      <button
+        type="button"
+        class="selector-tab active"
+        data-selector-category="fruit">
+        🍎 Fruits
+      </button>
+
+      <button
+        type="button"
+        class="selector-tab"
+        data-selector-category="gamepass">
+        🎟️ Game Pass
+      </button>
+
+      <button
+        type="button"
+        class="selector-tab"
+        data-selector-category="limited">
+        ⭐ Limiteds
+      </button>
+
+    </div>
+
+
+    <div class="trade-selector-search">
+
+      <span>🔎</span>
+
+      <input
+        type="text"
+        id="tradeSelectorSearch"
+        placeholder="Rechercher un élément...">
+
+    </div>
+
+
+    <div
+      class="trade-selector-grid"
+      id="tradeSelectorGrid">
+    </div>
+
+
+    <div
+      class="trade-selector-selected"
+      id="tradeSelectorSelected">
+
+      <div class="selected-preview">
+
+        <div
+          class="selected-image"
+          id="selectedTradeImage">
+          🍎
+        </div>
+
+        <div class="selected-info">
+
+          <strong id="selectedTradeName">
+            Sélectionne un élément
+          </strong>
+
+          <span id="selectedTradeValue">
+            Valeur : -
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        id="addSelectedTrade">
+        Ajouter au trade
+      </button>
+
+    </div>
+
+  </div>
+
+`;
+
+
+document.body.appendChild(selectorOverlay);
+
+
+/* =========================================================
+   ELEMENTS SELECTEUR
+========================================================= */
+
+const closeTradeSelector =
+  document.getElementById("closeTradeSelector");
+
+const tradeSelectorGrid =
+  document.getElementById("tradeSelectorGrid");
+
+const tradeSelectorSearch =
+  document.getElementById("tradeSelectorSearch");
+
+const selectorTabs =
+  document.querySelectorAll(".selector-tab");
+
+const selectedTradeName =
+  document.getElementById("selectedTradeName");
+
+const selectedTradeValue =
+  document.getElementById("selectedTradeValue");
+
+const selectedTradeImage =
+  document.getElementById("selectedTradeImage");
+
+const addSelectedTrade =
+  document.getElementById("addSelectedTrade");
+
+
+let selectorCategory = "fruit";
+let selectedTradeItem = null;
+
+
+/* =========================================================
+   OUVRIR LE SELECTEUR
+========================================================= */
+
+function openTradeSelector(container) {
+
+  currentTradeContainer = container;
+
+  selectedTradeItem = null;
+
+  selectorCategory = "fruit";
+
+  tradeSelectorSearch.value = "";
+
+  selectorTabs.forEach(function(tab) {
+
+    tab.classList.remove("active");
+
+    if (
+      tab.dataset.selectorCategory === "fruit"
+    ) {
+
+      tab.classList.add("active");
+
+    }
+
+  });
+
+
+  selectedTradeName.textContent =
+    "Sélectionne un élément";
+
+  selectedTradeValue.textContent =
+    "Valeur : -";
+
+  selectedTradeImage.innerHTML =
+    "🍎";
+
+
+  selectorOverlay.style.display = "flex";
+
+  displayTradeSelector();
+
+}
+
+
+/* =========================================================
+   FERMER
+========================================================= */
+
+function closeSelector() {
+
+  selectorOverlay.style.display = "none";
+
+  currentTradeContainer = null;
+
+  selectedTradeItem = null;
+
+}
+
+
+closeTradeSelector.addEventListener(
+  "click",
+  closeSelector
+);
+
+
+selectorOverlay.addEventListener(
+  "click",
+  function(event) {
+
+    if (event.target === selectorOverlay) {
+
+      closeSelector();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   AFFICHER LES ELEMENTS
+========================================================= */
+
+function displayTradeSelector() {
+
+  const search =
+    tradeSelectorSearch.value
+      .toLowerCase()
+      .trim();
+
+
+  tradeSelectorGrid.innerHTML = "";
+
+
+  const filteredItems =
+    items.filter(function(item) {
+
+      return (
+        item.category === selectorCategory &&
+        item.name
+          .toLowerCase()
+          .includes(search)
+      );
+
+    });
+
+
+  if (filteredItems.length === 0) {
+
+    tradeSelectorGrid.innerHTML = `
+
+      <div class="no-results">
+
+        Aucun élément trouvé.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  filteredItems.forEach(function(item) {
+
+    const card =
+      document.createElement("button");
+
+    card.type = "button";
+
+    card.className =
+      "trade-selector-item";
+
+
+    card.innerHTML = `
+
+      <div class="selector-item-image">
+
+        ${
+          item.image
+
+          ?
+
+          `
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+            onerror="
+              this.style.display='none';
+              this.nextElementSibling.style.display='flex';
+            "
+          >
+
+          <div
+            class="image-placeholder"
+            style="display:none;">
+            🍎
+          </div>
+          `
+
+          :
+
+          `
+          <div class="image-placeholder">
+            🍎
+          </div>
+          `
+        }
+
+      </div>
+
+
+      <div class="trade-selector-item-name">
+
+        ${item.name}
+
+      </div>
+
+
+      <div class="trade-selector-item-value">
+
+        ${item.value}
+
+      </div>
+
+    `;
+
+
+    card.addEventListener(
+      "click",
+      function() {
+
+        selectTradeItem(item);
+
+      }
+    );
+
+
+    tradeSelectorGrid.appendChild(card);
+
+  });
+
+}
+
+
+/* =========================================================
+   RECHERCHE SELECTEUR
+========================================================= */
+
+tradeSelectorSearch.addEventListener(
+  "input",
+  function() {
+
+    displayTradeSelector();
+
+  }
+);
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+selectorTabs.forEach(function(tab) {
+
+  tab.addEventListener(
+    "click",
+    function() {
+
+      selectorTabs.forEach(function(otherTab) {
+
+        otherTab.classList.remove("active");
+
+      });
+
+
+      tab.classList.add("active");
+
+
+      selectorCategory =
+        tab.dataset.selectorCategory;
+
+
+      tradeSelectorSearch.value = "";
+
+
+      selectedTradeItem = null;
+
+
+      selectedTradeName.textContent =
+        "Sélectionne un élément";
+
+      selectedTradeValue.textContent =
+        "Valeur : -";
+
+      selectedTradeImage.innerHTML =
+        "🍎";
+
+
+      displayTradeSelector();
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   SELECTIONNER UN ELEMENT
+========================================================= */
+
+function selectTradeItem(item) {
+
+  selectedTradeItem = item;
+
+
+  selectedTradeName.textContent =
+    item.name;
+
+
+  selectedTradeValue.textContent =
+    "Valeur : " + item.value;
+
+
+  if (item.image) {
+
+    selectedTradeImage.innerHTML = `
+
+      <img
+        src="${item.image}"
+        alt="${item.name}"
+        onerror="
+          this.style.display='none';
+          this.nextElementSibling.style.display='flex';
+        "
+      >
+
+      <div
+        class="image-placeholder"
+        style="display:none;">
+        🍎
+      </div>
+
+    `;
+
+  } else {
+
+    selectedTradeImage.innerHTML = `
+      🍎
+    `;
+
+  }
+
+}
+
+
+/* =========================================================
+   AJOUTER AU TRADE
+========================================================= */
+
+addSelectedTrade.addEventListener(
+  "click",
+  function() {
+
+    if (
+      !selectedTradeItem ||
+      !currentTradeContainer
+    ) {
+
+      return;
+
+    }
+
+
+    addSelectedItemToTrade(
+      currentTradeContainer,
+      selectedTradeItem
+    );
+
+
+    closeSelector();
+
+  }
+);
+
+
+/* =========================================================
+   AJOUTER UN ELEMENT AU COTE
+========================================================= */
+
+function addSelectedItemToTrade(
+  container,
+  item
+) {
 
   const row =
     document.createElement("div");
@@ -325,19 +820,57 @@ function addTradeFruit(container) {
 
   row.innerHTML = `
 
+    <div class="trade-selected-mini">
+
+      ${
+        item.image
+
+        ?
+
+        `
+        <img
+          src="${item.image}"
+          alt="${item.name}"
+          onerror="
+            this.style.display='none';
+            this.nextElementSibling.style.display='flex';
+          "
+        >
+
+        <div
+          class="image-placeholder"
+          style="display:none;">
+          🍎
+        </div>
+        `
+
+        :
+
+        `
+        <div class="image-placeholder">
+          🍎
+        </div>
+        `
+      }
+
+    </div>
+
+
     <input
       type="text"
       class="trade-fruit-name"
-      placeholder="Nom du fruit"
-      autocomplete="off"
+      value="${item.name}"
+      readonly
     >
+
 
     <input
       type="text"
       class="trade-fruit-value"
-      placeholder="Valeur"
+      value="${item.value}"
       readonly
     >
+
 
     <button
       class="remove-trade-fruit"
@@ -351,60 +884,11 @@ function addTradeFruit(container) {
   container.appendChild(row);
 
 
-  const nameInput =
-    row.querySelector(".trade-fruit-name");
-
-  const valueInput =
-    row.querySelector(".trade-fruit-value");
-
   const removeButton =
-    row.querySelector(".remove-trade-fruit");
+    row.querySelector(
+      ".remove-trade-fruit"
+    );
 
-
-  /* =========================
-     CHERCHER LE FRUIT
-  ========================= */
-
-  nameInput.addEventListener(
-    "input",
-    function() {
-
-      const name =
-        nameInput.value
-          .trim()
-          .toLowerCase();
-
-
-      const item =
-        items.find(function(item) {
-
-          return item.name
-            .toLowerCase() === name;
-
-        });
-
-
-      if (item) {
-
-        valueInput.value =
-          item.value;
-
-      } else {
-
-        valueInput.value = "";
-
-      }
-
-
-      updateTotals();
-
-    }
-  );
-
-
-  /* =========================
-     SUPPRIMER
-  ========================= */
 
   removeButton.addEventListener(
     "click",
@@ -412,16 +896,19 @@ function addTradeFruit(container) {
 
       row.remove();
 
-      updateTotals();
+      updateTradeTotals();
 
     }
   );
+
+
+  updateTradeTotals();
 
 }
 
 
 /* =========================================================
-   BOUTON AJOUTER — TON CÔTÉ
+   BOUTONS + DU TRADE
 ========================================================= */
 
 if (addYourFruit) {
@@ -430,7 +917,7 @@ if (addYourFruit) {
     "click",
     function() {
 
-      addTradeFruit(
+      openTradeSelector(
         yourTradeList
       );
 
@@ -440,17 +927,13 @@ if (addYourFruit) {
 }
 
 
-/* =========================================================
-   BOUTON AJOUTER — SON CÔTÉ
-========================================================= */
-
 if (addTheirFruit) {
 
   addTheirFruit.addEventListener(
     "click",
     function() {
 
-      addTradeFruit(
+      openTradeSelector(
         theirTradeList
       );
 
@@ -461,12 +944,13 @@ if (addTheirFruit) {
 
 
 /* =========================================================
-   CALCUL TOTAL
+   CALCULER TOTAL
 ========================================================= */
 
 function calculateTotal(container) {
 
   if (!container) return 0;
+
 
   let total = 0;
 
@@ -503,10 +987,10 @@ function calculateTotal(container) {
 
 
 /* =========================================================
-   METTRE À JOUR LES TOTALS
+   TOTALS
 ========================================================= */
 
-function updateTotals() {
+function updateTradeTotals() {
 
   const yourValue =
     calculateTotal(
@@ -574,12 +1058,9 @@ if (calculateTrade) {
         );
 
         return;
+
       }
 
-
-      /* =========================
-         RESET
-      ========================= */
 
       tradeResult.classList.remove(
         "win",
@@ -588,15 +1069,13 @@ if (calculateTrade) {
       );
 
 
-      /* =========================
-         W / F / L
-      ========================= */
-
       if (receive > offer) {
 
         tradeResult.textContent = "W";
 
-        tradeResult.classList.add("win");
+        tradeResult.classList.add(
+          "win"
+        );
 
       }
 
@@ -604,7 +1083,9 @@ if (calculateTrade) {
 
         tradeResult.textContent = "F";
 
-        tradeResult.classList.add("fair");
+        tradeResult.classList.add(
+          "fair"
+        );
 
       }
 
@@ -612,7 +1093,9 @@ if (calculateTrade) {
 
         tradeResult.textContent = "L";
 
-        tradeResult.classList.add("lose");
+        tradeResult.classList.add(
+          "lose"
+        );
 
       }
 
@@ -623,23 +1106,308 @@ if (calculateTrade) {
 
 
 /* =========================================================
-   PREMIÈRES LIGNES DE TRADE
+   ESC POUR FERMER
 ========================================================= */
 
-if (
-  yourTradeList &&
-  yourTradeList.children.length === 0
-) {
-  addTradeFruit(yourTradeList);
-}
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Escape" &&
+      selectorOverlay.style.display === "flex"
+    ) {
+
+      closeSelector();
+
+    }
+
+  }
+);
 
 
-if (
-  theirTradeList &&
-  theirTradeList.children.length === 0
-) {
-  addTradeFruit(theirTradeList);
-}
+/* =========================================================
+   CSS DU SELECTEUR AJOUTE PAR JS
+========================================================= */
+
+const tradeSelectorStyle =
+  document.createElement("style");
 
 
-updateTotals();
+tradeSelectorStyle.textContent = `
+
+  .trade-selector-tabs {
+
+    display: flex;
+
+    gap: 8px;
+
+    padding: 0 22px 15px;
+
+    border-bottom: 1px solid #29293e;
+
+  }
+
+
+  .selector-tab {
+
+    padding: 10px 16px;
+
+    border: 1px solid #303047;
+
+    border-radius: 9px;
+
+    background: #151522;
+
+    color: #aaaabd;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+  }
+
+
+  .selector-tab:hover {
+
+    color: white;
+
+    border-color: #7c4dff;
+
+  }
+
+
+  .selector-tab.active {
+
+    background: #7c4dff;
+
+    border-color: #7c4dff;
+
+    color: white;
+
+  }
+
+
+  .trade-selector-selected {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 15px 22px;
+
+    border-top: 1px solid #29293e;
+
+    background: #0f0f19;
+
+  }
+
+
+  .selected-preview {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+
+  }
+
+
+  .selected-image {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: #151522;
+
+    border: 1px solid #29293e;
+
+  }
+
+
+  .selected-image img {
+
+    width: 45px;
+
+    height: 45px;
+
+    object-fit: contain;
+
+  }
+
+
+  .selected-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+  }
+
+
+  .selected-info strong {
+
+    color: white;
+
+  }
+
+
+  .selected-info span {
+
+    color: #a78bfa;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+  }
+
+
+  #addSelectedTrade {
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #7c4dff;
+
+    color: white;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+  }
+
+
+  #addSelectedTrade:hover {
+
+    background: #936fff;
+
+    transform: translateY(-1px);
+
+  }
+
+
+  .selector-item-image {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #0f0f19;
+
+    border: 1px solid #29293e;
+
+  }
+
+
+  .selector-item-image img {
+
+    width: 60px;
+
+    height: 60px;
+
+    object-fit: contain;
+
+  }
+
+
+  .trade-selected-mini {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+  }
+
+
+  .trade-selected-mini img {
+
+    width: 36px;
+
+    height: 36px;
+
+    object-fit: contain;
+
+  }
+
+
+  @media (max-width: 700px) {
+
+    .trade-selector-tabs {
+
+      overflow-x: auto;
+
+      padding-left: 15px;
+
+      padding-right: 15px;
+
+    }
+
+
+    .trade-selector-selected {
+
+      flex-direction: column;
+
+      align-items: stretch;
+
+      padding: 15px;
+
+    }
+
+
+    #addSelectedTrade {
+
+      width: 100%;
+
+    }
+
+  }
+
+`;
+
+
+document.head.appendChild(
+  tradeSelectorStyle
+);

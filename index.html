@@ -128,169 +128,169 @@
   </section>
 
 
-<!-- =========================
-     TRADE CALCULATOR
-========================= -->
+  <!-- =========================
+       TRADE CALCULATOR
+  ========================== -->
 
-<section class="calculator" id="calculator">
+  <section class="calculator" id="calculator">
 
-  <div class="section-title">
-    <h2>⚖️ Trade Calculator</h2>
-    <p>Compare tes échanges facilement.</p>
-  </div>
+    <div class="section-title">
 
-  <div class="trade-calculator">
+      <h2>⚖️ Trade Calculator</h2>
 
-    <!-- =====================
-         YOU GIVE
-    ====================== -->
-
-    <div class="trade-side">
-
-      <div class="trade-side-header">
-        <div>
-          <span class="trade-label give-label">YOU GIVE</span>
-          <h3>Ton offre</h3>
-        </div>
-
-        <div class="trade-total">
-          <span id="yourTotal">0</span>
-        </div>
-      </div>
-
-      <div
-        class="trade-items"
-        id="yourTradeList">
-      </div>
-
-      <button
-        class="add-trade-button"
-        id="addYourFruit"
-        type="button">
-        <span>＋</span>
-        Ajouter un item
-      </button>
+      <p>
+        Compare tes échanges facilement.
+      </p>
 
     </div>
 
 
-    <!-- =====================
-         RESULT
-    ====================== -->
-
-    <div class="trade-result">
-
-      <div
-        id="tradeResult"
-        class="trade-result-circle">
-        VS
-      </div>
-
-      <div
-        id="tradeDifference"
-        class="trade-difference">
-      </div>
-
-    </div>
+    <div class="trade-calculator">
 
 
-    <!-- =====================
-         YOU GET
-    ====================== -->
+      <!-- =====================
+           YOU GIVE
+      ====================== -->
 
-    <div class="trade-side">
+      <div class="trade-side">
 
-      <div class="trade-side-header">
-        <div>
-          <span class="trade-label get-label">YOU GET</span>
-          <h3>Offre adverse</h3>
+        <div class="trade-side-header">
+
+          <div>
+
+            <span class="trade-label give-label">
+              YOU GIVE
+            </span>
+
+            <h3>
+              Ton offre
+            </h3>
+
+          </div>
+
+
+          <div class="trade-total">
+
+            <span id="yourTotal">
+              0
+            </span>
+
+          </div>
+
         </div>
 
-        <div class="trade-total">
-          <span id="theirTotal">0</span>
+
+        <div
+          class="trade-items"
+          id="yourTradeList">
         </div>
-      </div>
 
-      <div
-        class="trade-items"
-        id="theirTradeList">
-      </div>
-
-      <button
-        class="add-trade-button"
-        id="addTheirFruit"
-        type="button">
-        <span>＋</span>
-        Ajouter un item
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- =====================
-       CALCULATE
-  ====================== -->
-
-  <button
-    class="calculate-button"
-    id="calculateTrade"
-    type="button">
-    Calculer le trade
-  </button>
-
-
-  <!-- =====================
-       SELECTOR MODAL
-  ====================== -->
-
-  <div
-    class="trade-selector-overlay"
-    id="tradeSelector"
-    style="display:none;">
-
-    <div class="trade-selector">
-
-      <div class="trade-selector-header">
-
-        <div>
-          <span>SÉLECTIONNER UN ITEM</span>
-          <h3>Choisis ton item</h3>
-        </div>
 
         <button
-          type="button"
-          id="closeTradeSelector">
-          ✕
+          class="add-trade-button"
+          id="addYourFruit"
+          type="button">
+
+          <span>＋</span>
+
+          Ajouter un item
+
         </button>
 
       </div>
 
 
-      <div class="trade-selector-search">
+      <!-- =====================
+           RESULT
+      ====================== -->
 
-        <span>🔎</span>
+      <div class="trade-result">
 
-        <input
-          type="text"
-          id="tradeSearch"
-          placeholder="Rechercher un fruit, game pass..."
-          autocomplete="off">
+        <div
+          id="tradeResult"
+          class="trade-result-circle">
+
+          VS
+
+        </div>
+
+
+        <div
+          id="tradeDifference"
+          class="trade-difference">
+        </div>
 
       </div>
 
 
-      <div
-        class="trade-selector-grid"
-        id="tradeSelectorGrid">
+      <!-- =====================
+           YOU GET
+      ====================== -->
+
+      <div class="trade-side">
+
+        <div class="trade-side-header">
+
+          <div>
+
+            <span class="trade-label get-label">
+              YOU GET
+            </span>
+
+            <h3>
+              Offre adverse
+            </h3>
+
+          </div>
+
+
+          <div class="trade-total">
+
+            <span id="theirTotal">
+              0
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="trade-items"
+          id="theirTradeList">
+        </div>
+
+
+        <button
+          class="add-trade-button"
+          id="addTheirFruit"
+          type="button">
+
+          <span>＋</span>
+
+          Ajouter un item
+
+        </button>
+
       </div>
 
     </div>
 
-  </div>
 
-</section>
+    <!-- =====================
+         CALCULATE
+    ====================== -->
+
+    <button
+      class="calculate-button"
+      id="calculateTrade"
+      type="button">
+
+      Calculer le trade
+
+    </button>
+
+  </section>
 
 
   <!-- =========================

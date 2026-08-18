@@ -194,19 +194,16 @@ nav a:hover {
 
 .section-title {
   text-align: center;
-
   margin-bottom: 35px;
 }
 
 .section-title h2 {
   font-size: 40px;
-
   margin: 0 0 10px;
 }
 
 .section-title p {
   color: #77778d;
-
   margin: 0;
 }
 
@@ -250,9 +247,7 @@ nav a:hover {
 
 .category-btn:hover {
   color: white;
-
   border-color: #7c4dff;
-
   transform: translateY(-2px);
 }
 
@@ -489,13 +484,14 @@ nav a:hover {
 }
 
 .trade-calculator {
+  width: 100%;
   max-width: 1100px;
 
   margin: auto;
 
   display: grid;
 
-  grid-template-columns: 1fr 140px 1fr;
+  grid-template-columns: minmax(0, 1fr) 140px minmax(0, 1fr);
 
   align-items: center;
 
@@ -508,6 +504,7 @@ nav a:hover {
 ========================= */
 
 .trade-side {
+  min-width: 0;
   min-height: 430px;
 
   background:
@@ -533,6 +530,8 @@ nav a:hover {
 
   align-items: center;
   justify-content: space-between;
+
+  gap: 15px;
 
   margin-bottom: 20px;
 }
@@ -573,6 +572,8 @@ nav a:hover {
   font-weight: 900;
 
   font-size: 14px;
+
+  white-space: nowrap;
 }
 
 
@@ -748,18 +749,20 @@ nav a:hover {
   justify-content: center;
 
   gap: 12px;
+
+  min-width: 0;
 }
 
 .trade-result-circle {
   width: 90px;
-
   height: 90px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: center;
+
+  flex-shrink: 0;
 
   border-radius: 50%;
 
@@ -925,6 +928,8 @@ nav a:hover {
 
   justify-content: space-between;
 
+  gap: 15px;
+
   padding: 20px 22px;
 
   border-bottom: 1px solid #29293e;
@@ -950,6 +955,8 @@ nav a:hover {
   width: 36px;
 
   height: 36px;
+
+  flex-shrink: 0;
 
   border: none;
 
@@ -1242,7 +1249,6 @@ footer {
 
   .category-btn {
     padding: 10px 15px;
-
     font-size: 14px;
   }
 
@@ -1250,17 +1256,32 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  /* Trade Calculator */
   .trade-calculator {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
+  .trade-side {
+    min-height: auto;
+  }
+
+  .trade-items {
+    min-height: 100px;
+  }
+
+  /*
+     On garde le VS droit.
+     Pas de rotation du bloc entier,
+     sinon le texte et les éléments peuvent être inversés.
+  */
   .trade-result {
-    transform: rotate(90deg);
+    transform: none;
+    order: 2;
   }
 
-  /* Garde W / F / L droit */
   #tradeResult {
-    transform: rotate(-90deg);
+    transform: none;
   }
 
   .trade-fruit-row {
@@ -1269,17 +1290,16 @@ footer {
 
   .trade-fruit-name {
     width: 100%;
-
     flex: none;
   }
 
   .trade-fruit-value {
     flex: 1;
+    min-width: 0;
   }
 
   .fruit-form {
     flex-direction: column;
-
     align-items: center;
   }
 
@@ -1293,8 +1313,7 @@ footer {
   }
 
   .trade-selector-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     padding: 0 15px 15px;
   }
@@ -1310,5 +1329,53 @@ footer {
   .remove-trade-fruit {
     width: 44px;
     height: 44px;
+  }
+}
+
+
+/* =========================
+   PETITS ÉCRANS
+========================= */
+
+@media (max-width: 420px) {
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .section-title h2 {
+    font-size: 32px;
+  }
+
+  .trade-side {
+    padding: 16px;
+  }
+
+  .trade-side-header {
+    align-items: flex-start;
+  }
+
+  .trade-total {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+
+  .trade-fruit-value {
+    width: 90px;
+  }
+
+  .trade-selector-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .trade-selector-item {
+    min-height: 125px;
+    padding: 10px 7px;
+  }
+
+  .trade-selector-item img {
+    width: 55px;
+    height: 55px;
   }
 }

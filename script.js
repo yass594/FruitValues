@@ -1,12 +1,132 @@
 /* =========================================================
-   CONVERSION DES VALEURS
+   FRUITVALUES — DATABASE
+========================================================= */
+
+const items = [
+
+  /* =========================
+     ALL FRUITS
+  ========================= */
+
+  { name: "Rocket", value: "5K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/c/cb/Rocket_Fruit.png" },
+  { name: "Spin", value: "7.5K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/88/Spin_Fruit.png/revision/latest?cb=20231027120258" },
+  { name: "Blade", value: "50K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/0/01/Blade_Fruit.png/revision/latest?cb=20241215033604" },
+  { name: "Spring", value: "60K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/8a/Spring_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027120418" },
+  { name: "Bomb", value: "80K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/4/43/Bomb_Fruit.png/revision/latest/scale-to-width-down/110?cb=20240304195914" },
+  { name: "Smoke", value: "100K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/7/7e/Smoke_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027120224" },
+  { name: "Spike", value: "180K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/c/ce/Spike_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027120251" },
+  { name: "Flame", value: "250K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c4/Flame_Fruit.png/revision/latest/scale-to-width-down/110?cb=20250421150742" },
+  { name: "Dark", value: "400K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/5/5c/Dark_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235544" },
+  { name: "Sand", value: "420K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/7/72/Sand_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235551" },
+  { name: "Ice", value: "550K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c5/Ice_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235854" },
+  { name: "Rubber", value: "700K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/5/5c/Rubber_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027120046" },
+  { name: "Eagle", value: "800K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/5/53/Eagle_Fruit.png/revision/latest/scale-to-width-down/110?cb=20250418030931" },
+  { name: "Ghost", value: "800K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/8c/Ghost_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235824" },
+  { name: "Light", value: "800K", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/83/Light_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027115623" },
+  { name: "Diamond", value: "1M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/88/Diamond_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235654" },
+  { name: "Quake", value: "1M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/4/42/Quake_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260807000132" },
+  { name: "Magma", value: "1.15M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/2/27/Magma_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027115640" },
+  { name: "Love", value: "1.5M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/b/b3/Love_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027115630" },
+  { name: "Spider", value: "1.5M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/6/61/Spider_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235623" },
+  { name: "Sound", value: "2.5M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/b/ba/Sound_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027120231" },
+  { name: "Phoenix", value: "2.75M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/f/fc/Phoenix_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260807000100" },
+  { name: "Creation", value: "2.5M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/4/44/Creation_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260626022311" },
+  { name: "Blizzard", value: "5M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c9/Blizzard_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027115313" },
+  { name: "Shadow", value: "6.5M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/5/58/Shadow_Fruit.png/revision/latest/scale-to-width-down/110?cb=20241229033053" },
+  { name: "Buddha", value: "10M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/d/df/Buddha_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027115325" },
+  { name: "Portal", value: "10M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/8/8a/Portal_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027115746" },
+  { name: "Spirit", value: "10M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/6/66/Spirit_Fruit.png/revision/latest/scale-to-width-down/110?cb=20240304190559" },
+  { name: "Mammoth", value: "10M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/9/95/Mammoth_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235956" },
+  { name: "Gravity", value: "10M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/5/5f/Gravity_Fruit.png/revision/latest/scale-to-width-down/110?cb=20250418030958" },
+  { name: "Pain", value: "10M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/4/40/Pain_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260807000029" },
+  { name: "T-Rex", value: "20M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/d/d9/T-Rex_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231226191220" },
+  { name: "Venom", value: "20M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/d/d2/Venom_Fruit.png/revision/latest/scale-to-width-down/110?cb=20231027120425" },
+  { name: "Dough", value: "30M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/0/02/Dough_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235727" },
+  { name: "Lightning", value: "50M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/7/78/Lightning_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806235926" },
+  { name: "Gas", value: "60M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/e/ed/Gas_Fruit.png/revision/latest/scale-to-width-down/110?cb=20241223162315" },
+  { name: "Yeti", value: "120M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/2/2f/Yeti_Fruit.png/revision/latest/scale-to-width-down/110?cb=20260806232444" },
+  { name: "Tiger", value: "130M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/1/14/Tiger_Fruit.png/revision/latest/scale-to-width-down/110?cb=20251101005924" },
+  { name: "Control", value: "160M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/1/19/Control_Fruit.png/revision/latest/scale-to-width-down/110?cb=20251223165924" },
+  { name: "Kitsune", value: "640M", category: "fruit", image: "https://static.wikia.nocookie.net/roblox-blox-piece/images/6/65/Kitsune_Fruit.png/revision/latest/scale-to-width-down/110?cb=20241223162956" },
+  { name: "East Dragon", value: "3.36B", category: "fruit", image: "https://i.postimg.cc/gkzHzzjS/East-Dragon.png" },
+  { name: "West Dragon", value: "3.91B", category: "fruit", image: "https://i.postimg.cc/7LfBxxs8/West-Dragon.png" },
+
+  /* =========================
+     GAME PASS
+  ========================= */
+
+  { name: "Fast Boats", value: "300M", category: "gamepass", image: "https://i.postimg.cc/NjV6kR4S/Fast-Boats.png" },
+  { name: "2x Boss Drops", value: "300M", category: "gamepass", image: "https://i.postimg.cc/HxMBy616/2x-Boss-Drops.png" },
+  { name: "2x Money", value: "450M", category: "gamepass", image: "https://i.postimg.cc/rsLgC58M/2x-Money.png" },
+  { name: "2x Mastery", value: "450M", category: "gamepass", image: "https://i.postimg.cc/0jdntrQm/2x-Mastery.png" },
+  { name: "+1 Fruit Storage", value: "450M", category: "gamepass", image: "https://i.postimg.cc/hj7pmcdF/1-Fruit-Storage.png" },
+  { name: "Legendary Scrolls", value: "680M", category: "gamepass", image: "https://i.postimg.cc/YqDYtQJ0/Legendary-Scrolls.png" },
+  { name: "Mythical Scrolls", value: "1.59B", category: "gamepass", image: "https://i.postimg.cc/d3HktKNp/Mythical-Scrolls.png" },
+  { name: "Dark Blade", value: "1.02B", category: "gamepass", image: "https://i.postimg.cc/fLYfLkYF/Dark-Blade.png" },
+  { name: "Fruit Notifier", value: "4.79B", category: "gamepass", image: "https://i.postimg.cc/Zqdr70sR/Fruit-Notifer.png" },
+
+  /* =========================
+     LIMITEDS
+  ========================= */
+
+  { name: "Orange Portal", value: "N/A", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
+  { name: "Nuclear Bomb", value: "610M", category: "limited", image: "https://i.postimg.cc/QNQdjNvs/Nuclear-Bomb.png" },
+  { name: "Thermite Bomb", value: "580M", category: "limited", image: "https://i.postimg.cc/T2V3T2Bf/Thermite-Bomb.png" },
+  { name: "Azura Bomb", value: "640M", category: "limited", image: "https://i.postimg.cc/PfW5df9K/Azura-Bomb.png" },
+  { name: "Celebration Bomb", value: "10M", category: "limited", image: "https://i.postimg.cc/Jh4xrpf6/Celebration-Bomb.png" },
+
+  { name: "Eagle Matrix", value: "250M", category: "limited", image: "https://i.postimg.cc/446xX4qD/Eagle-Matrix.png" },
+  { name: "Eagle Glacier", value: "20M", category: "limited", image: "https://i.postimg.cc/qBsvpBWV/Eagle-Glacier.png" },
+  { name: "Eagle Requiem", value: "160M", category: "limited", image: "https://i.postimg.cc/7P3ZqPjr/Eagle-Requiem.png" },
+
+  { name: "Celestial Pain", value: "1.02B", category: "limited", image: "https://i.postimg.cc/RC7ZvC2r/Celestial-Pain.png" },
+  { name: "Frustration Pain", value: "900M", category: "limited", image: "https://i.postimg.cc/26WCvwZP/Frustration.png" },
+  { name: "Sadness Pain", value: "860M", category: "limited", image: "https://i.postimg.cc/C5VS4qCd/Sadness.png" },
+  { name: "Torment Pain", value: "160M", category: "limited", image: "https://i.postimg.cc/T1qGN3Q0/Torment.png" },
+  { name: "Super Spirit Pain", value: "3.3B", category: "limited", image: "https://i.postimg.cc/Xv7LjsRD/Super-Spirit-Pain.png" },
+
+  { name: "Ecipse", value: "N/A", category: "limited", image: "https://i.postimg.cc/65MLTkG9/Eclipse.png" },
+  { name: "Dragon Token", value: "N/A", category: "limited", image: "https://i.postimg.cc/hPYzkcd7/Dragon-Token.png" },
+
+  { name: "Ruby Diamond", value: "160M", category: "limited", image: "https://i.postimg.cc/9XGMSFbY/Ruby.webp" },
+  { name: "Topaz Diamond", value: "220M", category: "limited", image: "https://i.postimg.cc/VLgNfG3S/Topaz.webp" },
+  { name: "Emerald Diamond", value: "220M", category: "limited", image: "https://i.postimg.cc/8zCzjdSZ/Emerald.webp" },
+  { name: "Rose Quartz Diamond", value: "350M", category: "limited", image: "https://i.postimg.cc/02PQqRHR/Rose-Quartz.webp" },
+
+  { name: "Werewolf", value: "1.06B", category: "limited", image: "https://i.postimg.cc/mr2jLmv5/Werewolf.png" },
+
+  { name: "Green Lightning", value: "410M", category: "limited", image: "https://i.postimg.cc/MKcKbW5Z/Green-Lightning.png" },
+  { name: "Yellow Lightning", value: "1.76B", category: "limited", image: "https://i.postimg.cc/cLwx2XPV/Yellow-Lightning.png" },
+  { name: "Red Lightning", value: "2.88B", category: "limited", image: "https://i.postimg.cc/s2DmjTkH/Red-Lightning.png" },
+
+  { name: "Parrot", value: "N/A", category: "limited", image: "https://i.postimg.cc/dt3ZNLLY/Parrot.png" },
+  { name: "Purple Lightning", value: "5.34B", category: "limited", image: "https://i.postimg.cc/d0FsYGYD/Purple-Lightning.png" },
+
+  { name: "Divine Portal", value: "1.67B", category: "limited", image: "https://i.postimg.cc/htF9sFwc/latest-cb-20251225222313.webp" },
+  { name: "MEME-FRUIT", value: "4.61B", category: "limited", image: "https://i.postimg.cc/KYLd2W5J/latest-cb-20260402183037.webp" },
+
+  { name: "Crimson Kitsune", value: "8.7B", category: "limited", image: "https://i.postimg.cc/dtg9fZh5/latest-cb-20251225145618.webp" },
+  { name: "Ember West Dragon", value: "7.1B", category: "limited", image: "https://i.postimg.cc/k5JRY7vf/latest-cb-20251226164613.webp" },
+  { name: "Galaxy Empyrean Kitsune", value: "11.96B", category: "limited", image: "https://i.postimg.cc/k5JRY7vf/latest-cb-20251226164613.webp" },
+
+  { name: "Fiend Yeti", value: "960M", category: "limited", image: "https://i.postimg.cc/fbBmGbCv/latest-cb-20260214132352.webp" },
+
+  { name: "Dog Blade", value: "580M", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
+  { name: "Rabid Dog Blade", value: "6.24B", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
+  { name: "Dog House (Frame Break)", value: "6.97B", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
+
+  { name: "Permanent Dragon Token", value: "N/A", category: "limited", image: "https://i.postimg.cc/59nFmw9g/Permanent-Dragon-Token.png" }
+
+];
+
+
+/* =========================================================
+   CONVERSION
 ========================================================= */
 
 function valueToNumber(value) {
 
-  if (!value || value === "N/A") {
-    return 0;
-  }
+  if (!value || value === "N/A") return 0;
 
   const cleanValue = String(value)
     .replace(",", ".")
@@ -29,17 +149,13 @@ function valueToNumber(value) {
 }
 
 
-/* =========================================================
-   FORMATAGE
-========================================================= */
-
 function formatNumber(number) {
   return Number(number).toLocaleString("fr-FR");
 }
 
 
 /* =========================================================
-   LISTE DES VALEURS
+   VALEURS
 ========================================================= */
 
 const valuesList = document.getElementById("valuesList");
@@ -48,18 +164,10 @@ const searchInput = document.getElementById("searchInput");
 let currentCategory = "fruit";
 
 
-/* =========================================================
-   IMAGE
-========================================================= */
-
 function createImage(item) {
 
   if (!item.image) {
-    return `
-      <div class="image-placeholder">
-        🍎
-      </div>
-    `;
+    return `<div class="image-placeholder">🍎</div>`;
   }
 
   return `
@@ -67,21 +175,16 @@ function createImage(item) {
       src="${item.image}"
       alt="${item.name}"
       loading="lazy"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      onerror="
+        this.style.display='none';
+        if(this.nextElementSibling)
+          this.nextElementSibling.style.display='flex';
+      "
     >
-
-    <div
-      class="image-placeholder"
-      style="display:none;">
-      🍎
-    </div>
+    <div class="image-placeholder" style="display:none;">🍎</div>
   `;
 }
 
-
-/* =========================================================
-   AFFICHER LES CARTES
-========================================================= */
 
 function displayValues() {
 
@@ -95,13 +198,11 @@ function displayValues() {
 
   const filteredItems = items.filter(function(item) {
 
-    const correctCategory =
-      item.category === currentCategory;
+    return (
+      item.category === currentCategory &&
+      item.name.toLowerCase().includes(search)
+    );
 
-    const correctSearch =
-      item.name.toLowerCase().includes(search);
-
-    return correctCategory && correctSearch;
   });
 
 
@@ -138,7 +239,9 @@ function displayValues() {
     `;
 
     valuesList.appendChild(card);
+
   });
+
 }
 
 
@@ -146,7 +249,7 @@ displayValues();
 
 
 /* =========================================================
-   CATÉGORIES
+   CATÉGORIES PRINCIPALES
 ========================================================= */
 
 const categoryButtons =
@@ -171,23 +274,21 @@ categoryButtons.forEach(function(button) {
     }
 
     displayValues();
+
   });
 
 });
 
 
 /* =========================================================
-   RECHERCHE
+   RECHERCHE PRINCIPALE
 ========================================================= */
 
 if (searchInput) {
 
-  searchInput.addEventListener(
-    "input",
-    function() {
-      displayValues();
-    }
-  );
+  searchInput.addEventListener("input", function() {
+    displayValues();
+  });
 
 }
 
@@ -206,112 +307,129 @@ const addFruitButton =
   document.getElementById("addFruitButton");
 
 
-if (addFruitButton) {
+if (
+  addFruitButton &&
+  fruitName &&
+  fruitValue
+) {
 
-  addFruitButton.addEventListener(
-    "click",
-    function() {
+  addFruitButton.addEventListener("click", function() {
 
-      const name =
-        fruitName.value.trim();
+    const name =
+      fruitName.value.trim();
 
-      const value =
-        Number(fruitValue.value);
+    const value =
+      Number(fruitValue.value);
 
+
+    if (
+      name === "" ||
+      fruitValue.value === ""
+    ) {
+
+      alert(
+        "Remplis le nom et la valeur du fruit !"
+      );
+
+      return;
+    }
+
+
+    if (value < 0) {
+
+      alert(
+        "La valeur ne peut pas être négative !"
+      );
+
+      return;
+    }
+
+
+    items.push({
+
+      name: name,
+
+      value: formatNumber(value),
+
+      category: "fruit",
+
+      custom: true,
+
+      image: null
+
+    });
+
+
+    currentCategory = "fruit";
+
+
+    categoryButtons.forEach(function(button) {
+
+      button.classList.remove("active");
 
       if (
-        name === "" ||
-        fruitValue.value === ""
+        button.dataset.category === "fruit"
       ) {
 
-        alert(
-          "Remplis le nom et la valeur du fruit !"
-        );
+        button.classList.add("active");
 
-        return;
       }
 
-
-      if (value < 0) {
-
-        alert(
-          "La valeur ne peut pas être négative !"
-        );
-
-        return;
-      }
+    });
 
 
-      items.push({
-        name: name,
-        value: formatNumber(value),
-        category: "fruit",
-        custom: true,
-        image: null
-      });
+    displayValues();
 
 
-      currentCategory = "fruit";
+    fruitName.value = "";
+    fruitValue.value = "";
 
-
-      categoryButtons.forEach(function(button) {
-
-        button.classList.remove("active");
-
-        if (
-          button.dataset.category === "fruit"
-        ) {
-          button.classList.add("active");
-        }
-
-      });
-
-
-      displayValues();
-
-
-      fruitName.value = "";
-      fruitValue.value = "";
-
-    }
-  );
+  });
 
 }
 
 
 /* =========================================================
-   TRADE CALCULATOR — SELECTEUR AVEC IMAGES
+   TRADE CALCULATOR
 ========================================================= */
 
-const yourTradeList = document.getElementById("yourTradeList");
-const theirTradeList = document.getElementById("theirTradeList");
+const yourTradeList =
+  document.getElementById("yourTradeList");
 
-const yourTotal = document.getElementById("yourTotal");
-const theirTotal = document.getElementById("theirTotal");
+const theirTradeList =
+  document.getElementById("theirTradeList");
 
-const addYourFruit = document.getElementById("addYourFruit");
-const addTheirFruit = document.getElementById("addTheirFruit");
+const yourTotal =
+  document.getElementById("yourTotal");
 
-const calculateTrade = document.getElementById("calculateTrade");
-const tradeResult = document.getElementById("tradeResult");
+const theirTotal =
+  document.getElementById("theirTotal");
 
+const addYourFruit =
+  document.getElementById("addYourFruit");
 
-/* =========================================================
-   COTE ACTUELLE
-========================================================= */
+const addTheirFruit =
+  document.getElementById("addTheirFruit");
+
+const calculateTrade =
+  document.getElementById("calculateTrade");
+
+const tradeResult =
+  document.getElementById("tradeResult");
+
 
 let currentTradeContainer = null;
 
 
 /* =========================================================
-   CREER LE SELECTEUR
+   CRÉATION DU SELECTEUR
 ========================================================= */
 
-const selectorOverlay = document.createElement("div");
+const selectorOverlay =
+  document.createElement("div");
 
-selectorOverlay.className = "trade-selector-overlay";
-
-selectorOverlay.style.display = "none";
+selectorOverlay.className =
+  "trade-selector-overlay";
 
 selectorOverlay.innerHTML = `
 
@@ -320,8 +438,8 @@ selectorOverlay.innerHTML = `
     <div class="trade-selector-header">
 
       <div>
-        <span>TRADE CALCULATOR</span>
-        <h3>Choisir un élément</h3>
+        <small>TRADE CALCULATOR</small>
+        <h2>Choisir un élément</h2>
       </div>
 
       <button
@@ -421,6 +539,531 @@ document.body.appendChild(selectorOverlay);
 
 
 /* =========================================================
+   STYLE DU SELECTEUR
+========================================================= */
+
+const tradeSelectorStyle =
+  document.createElement("style");
+
+tradeSelectorStyle.textContent = `
+
+.trade-selector-overlay {
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 99999;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0,0,0,.75);
+
+  backdrop-filter: blur(8px);
+
+}
+
+
+.trade-selector {
+
+  width: min(900px, 100%);
+
+  max-height: 90vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #10101b;
+
+  border: 1px solid #29293e;
+
+  border-radius: 18px;
+
+  box-shadow: 0 25px 80px rgba(0,0,0,.65);
+
+}
+
+
+.trade-selector-header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #29293e;
+
+}
+
+
+.trade-selector-header small {
+
+  color: #8b5cf6;
+
+  font-weight: 800;
+
+  font-size: 11px;
+
+}
+
+
+.trade-selector-header h2 {
+
+  margin: 5px 0 0;
+
+  color: white;
+
+}
+
+
+#closeTradeSelector {
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #303047;
+
+  border-radius: 9px;
+
+  background: #181824;
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+}
+
+
+#closeTradeSelector:hover {
+
+  background: #29293e;
+
+}
+
+
+.trade-selector-tabs {
+
+  display: flex;
+
+  gap: 8px;
+
+  padding: 15px 22px;
+
+  border-bottom: 1px solid #29293e;
+
+}
+
+
+.selector-tab {
+
+  padding: 10px 16px;
+
+  border: 1px solid #303047;
+
+  border-radius: 9px;
+
+  background: #151522;
+
+  color: #aaaabd;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+}
+
+
+.selector-tab.active {
+
+  background: #7c4dff;
+
+  border-color: #7c4dff;
+
+  color: white;
+
+}
+
+
+.trade-selector-search {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 15px 22px;
+
+  padding: 0 14px;
+
+  height: 45px;
+
+  border: 1px solid #303047;
+
+  border-radius: 10px;
+
+  background: #151522;
+
+}
+
+
+.trade-selector-search span {
+
+  font-size: 16px;
+
+}
+
+
+.trade-selector-search input {
+
+  width: 100%;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 14px;
+
+}
+
+
+.trade-selector-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(145px, 1fr));
+
+  gap: 12px;
+
+  padding: 0 22px 20px;
+
+  overflow-y: auto;
+
+  min-height: 180px;
+
+}
+
+
+.trade-selector-item {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 12px;
+
+  border: 1px solid #29293e;
+
+  border-radius: 12px;
+
+  background: #151522;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: .15s;
+
+}
+
+
+.trade-selector-item:hover {
+
+  transform: translateY(-2px);
+
+  border-color: #7c4dff;
+
+  background: #1b192a;
+
+}
+
+
+.selector-item-image {
+
+  width: 75px;
+  height: 75px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #0d0d16;
+
+  border: 1px solid #29293e;
+
+}
+
+
+.selector-item-image img {
+
+  width: 65px;
+  height: 65px;
+
+  object-fit: contain;
+
+}
+
+
+.trade-selector-item-name {
+
+  width: 100%;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  text-align: center;
+
+  font-weight: 700;
+
+}
+
+
+.trade-selector-item-value {
+
+  color: #a78bfa;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+}
+
+
+.trade-selector-selected {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 15px 22px;
+
+  border-top: 1px solid #29293e;
+
+  background: #0c0c14;
+
+}
+
+
+.selected-preview {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+}
+
+
+.selected-image {
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #151522;
+
+  border: 1px solid #29293e;
+
+}
+
+
+.selected-image img {
+
+  width: 45px;
+  height: 45px;
+
+  object-fit: contain;
+
+}
+
+
+.selected-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+
+.selected-info strong {
+
+  color: white;
+
+}
+
+
+.selected-info span {
+
+  color: #a78bfa;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+}
+
+
+#addSelectedTrade {
+
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #7c4dff;
+
+  color: white;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+}
+
+
+#addSelectedTrade:hover {
+
+  background: #936fff;
+
+}
+
+
+.trade-selected-mini {
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+}
+
+
+.trade-selected-mini img {
+
+  width: 38px;
+  height: 38px;
+
+  object-fit: contain;
+
+}
+
+
+.image-placeholder {
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25px;
+
+}
+
+
+@media (max-width: 700px) {
+
+  .trade-selector {
+
+    max-height: 95vh;
+
+  }
+
+  .trade-selector-tabs {
+
+    overflow-x: auto;
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+  }
+
+  .trade-selector-grid {
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+  }
+
+  .trade-selector-selected {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 15px;
+
+  }
+
+  #addSelectedTrade {
+
+    width: 100%;
+
+  }
+
+}
+
+`;
+
+document.head.appendChild(tradeSelectorStyle);
+
+
+/* =========================================================
    ELEMENTS SELECTEUR
 ========================================================= */
 
@@ -454,7 +1097,7 @@ let selectedTradeItem = null;
 
 
 /* =========================================================
-   OUVRIR LE SELECTEUR
+   OUVRIR
 ========================================================= */
 
 function openTradeSelector(container) {
@@ -466,6 +1109,7 @@ function openTradeSelector(container) {
   selectorCategory = "fruit";
 
   tradeSelectorSearch.value = "";
+
 
   selectorTabs.forEach(function(tab) {
 
@@ -535,7 +1179,7 @@ selectorOverlay.addEventListener(
 
 
 /* =========================================================
-   AFFICHER LES ELEMENTS
+   AFFICHER SELECTEUR
 ========================================================= */
 
 function displayTradeSelector() {
@@ -554,9 +1198,7 @@ function displayTradeSelector() {
 
       return (
         item.category === selectorCategory &&
-        item.name
-          .toLowerCase()
-          .includes(search)
+        item.name.toLowerCase().includes(search)
       );
 
     });
@@ -565,13 +1207,9 @@ function displayTradeSelector() {
   if (filteredItems.length === 0) {
 
     tradeSelectorGrid.innerHTML = `
-
       <div class="no-results">
-
         Aucun élément trouvé.
-
       </div>
-
     `;
 
     return;
@@ -597,31 +1235,32 @@ function displayTradeSelector() {
         ${
           item.image
 
-          ?
+          ? `
+
+            <img
+              src="${item.image}"
+              alt="${item.name}"
+              loading="lazy"
+              onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='flex';
+              "
+            >
+
+            <div
+              class="image-placeholder"
+              style="display:none;">
+              🍎
+            </div>
 
           `
-          <img
-            src="${item.image}"
-            alt="${item.name}"
-            onerror="
-              this.style.display='none';
-              this.nextElementSibling.style.display='flex';
-            "
-          >
 
-          <div
-            class="image-placeholder"
-            style="display:none;">
-            🍎
-          </div>
-          `
+          : `
 
-          :
+            <div class="image-placeholder">
+              🍎
+            </div>
 
-          `
-          <div class="image-placeholder">
-            🍎
-          </div>
           `
         }
 
@@ -629,16 +1268,12 @@ function displayTradeSelector() {
 
 
       <div class="trade-selector-item-name">
-
         ${item.name}
-
       </div>
 
 
       <div class="trade-selector-item-value">
-
         ${item.value}
-
       </div>
 
     `;
@@ -662,21 +1297,17 @@ function displayTradeSelector() {
 
 
 /* =========================================================
-   RECHERCHE SELECTEUR
+   RECHERCHE DU SELECTEUR
 ========================================================= */
 
 tradeSelectorSearch.addEventListener(
   "input",
-  function() {
-
-    displayTradeSelector();
-
-  }
+  displayTradeSelector
 );
 
 
 /* =========================================================
-   TABS
+   TABS SELECTEUR
 ========================================================= */
 
 selectorTabs.forEach(function(tab) {
@@ -701,7 +1332,6 @@ selectorTabs.forEach(function(tab) {
 
       tradeSelectorSearch.value = "";
 
-
       selectedTradeItem = null;
 
 
@@ -724,7 +1354,7 @@ selectorTabs.forEach(function(tab) {
 
 
 /* =========================================================
-   SELECTIONNER UN ELEMENT
+   SELECTIONNER
 ========================================================= */
 
 function selectTradeItem(item) {
@@ -763,9 +1393,8 @@ function selectTradeItem(item) {
 
   } else {
 
-    selectedTradeImage.innerHTML = `
-      🍎
-    `;
+    selectedTradeImage.innerHTML =
+      "🍎";
 
   }
 
@@ -803,7 +1432,7 @@ addSelectedTrade.addEventListener(
 
 
 /* =========================================================
-   AJOUTER UN ELEMENT AU COTE
+   AJOUTER ELEMENT
 ========================================================= */
 
 function addSelectedItemToTrade(
@@ -825,31 +1454,32 @@ function addSelectedItemToTrade(
       ${
         item.image
 
-        ?
+        ? `
+
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+            loading="lazy"
+            onerror="
+              this.style.display='none';
+              this.nextElementSibling.style.display='flex';
+            "
+          >
+
+          <div
+            class="image-placeholder"
+            style="display:none;">
+            🍎
+          </div>
 
         `
-        <img
-          src="${item.image}"
-          alt="${item.name}"
-          onerror="
-            this.style.display='none';
-            this.nextElementSibling.style.display='flex';
-          "
-        >
 
-        <div
-          class="image-placeholder"
-          style="display:none;">
-          🍎
-        </div>
-        `
+        : `
 
-        :
+          <div class="image-placeholder">
+            🍎
+          </div>
 
-        `
-        <div class="image-placeholder">
-          🍎
-        </div>
         `
       }
 
@@ -911,7 +1541,7 @@ function addSelectedItemToTrade(
    BOUTONS + DU TRADE
 ========================================================= */
 
-if (addYourFruit) {
+if (addYourFruit && yourTradeList) {
 
   addYourFruit.addEventListener(
     "click",
@@ -927,7 +1557,7 @@ if (addYourFruit) {
 }
 
 
-if (addTheirFruit) {
+if (addTheirFruit && theirTradeList) {
 
   addTheirFruit.addEventListener(
     "click",
@@ -944,7 +1574,7 @@ if (addTheirFruit) {
 
 
 /* =========================================================
-   CALCULER TOTAL
+   TOTAL
 ========================================================= */
 
 function calculateTotal(container) {
@@ -987,7 +1617,7 @@ function calculateTotal(container) {
 
 
 /* =========================================================
-   TOTALS
+   METTRE A JOUR LES TOTAUX
 ========================================================= */
 
 function updateTradeTotals() {
@@ -1062,40 +1692,38 @@ if (calculateTrade) {
       }
 
 
-      tradeResult.classList.remove(
-        "win",
-        "fair",
-        "lose"
-      );
+      if (tradeResult) {
 
-
-      if (receive > offer) {
-
-        tradeResult.textContent = "W";
-
-        tradeResult.classList.add(
-          "win"
-        );
-
-      }
-
-      else if (receive === offer) {
-
-        tradeResult.textContent = "F";
-
-        tradeResult.classList.add(
-          "fair"
-        );
-
-      }
-
-      else {
-
-        tradeResult.textContent = "L";
-
-        tradeResult.classList.add(
+        tradeResult.classList.remove(
+          "win",
+          "fair",
           "lose"
         );
+
+
+        if (receive > offer) {
+
+          tradeResult.textContent = "W";
+
+          tradeResult.classList.add("win");
+
+        }
+
+        else if (receive === offer) {
+
+          tradeResult.textContent = "F";
+
+          tradeResult.classList.add("fair");
+
+        }
+
+        else {
+
+          tradeResult.textContent = "L";
+
+          tradeResult.classList.add("lose");
+
+        }
 
       }
 
@@ -1106,7 +1734,7 @@ if (calculateTrade) {
 
 
 /* =========================================================
-   ESC POUR FERMER
+   ESC
 ========================================================= */
 
 document.addEventListener(
@@ -1123,291 +1751,4 @@ document.addEventListener(
     }
 
   }
-);
-
-
-/* =========================================================
-   CSS DU SELECTEUR AJOUTE PAR JS
-========================================================= */
-
-const tradeSelectorStyle =
-  document.createElement("style");
-
-
-tradeSelectorStyle.textContent = `
-
-  .trade-selector-tabs {
-
-    display: flex;
-
-    gap: 8px;
-
-    padding: 0 22px 15px;
-
-    border-bottom: 1px solid #29293e;
-
-  }
-
-
-  .selector-tab {
-
-    padding: 10px 16px;
-
-    border: 1px solid #303047;
-
-    border-radius: 9px;
-
-    background: #151522;
-
-    color: #aaaabd;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-  }
-
-
-  .selector-tab:hover {
-
-    color: white;
-
-    border-color: #7c4dff;
-
-  }
-
-
-  .selector-tab.active {
-
-    background: #7c4dff;
-
-    border-color: #7c4dff;
-
-    color: white;
-
-  }
-
-
-  .trade-selector-selected {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    padding: 15px 22px;
-
-    border-top: 1px solid #29293e;
-
-    background: #0f0f19;
-
-  }
-
-
-  .selected-preview {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    min-width: 0;
-
-  }
-
-
-  .selected-image {
-
-    width: 55px;
-
-    height: 55px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    border-radius: 10px;
-
-    background: #151522;
-
-    border: 1px solid #29293e;
-
-  }
-
-
-  .selected-image img {
-
-    width: 45px;
-
-    height: 45px;
-
-    object-fit: contain;
-
-  }
-
-
-  .selected-info {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-  }
-
-
-  .selected-info strong {
-
-    color: white;
-
-  }
-
-
-  .selected-info span {
-
-    color: #a78bfa;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-  }
-
-
-  #addSelectedTrade {
-
-    padding: 12px 18px;
-
-    border: none;
-
-    border-radius: 9px;
-
-    background: #7c4dff;
-
-    color: white;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    white-space: nowrap;
-
-  }
-
-
-  #addSelectedTrade:hover {
-
-    background: #936fff;
-
-    transform: translateY(-1px);
-
-  }
-
-
-  .selector-item-image {
-
-    width: 70px;
-
-    height: 70px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 12px;
-
-    background: #0f0f19;
-
-    border: 1px solid #29293e;
-
-  }
-
-
-  .selector-item-image img {
-
-    width: 60px;
-
-    height: 60px;
-
-    object-fit: contain;
-
-  }
-
-
-  .trade-selected-mini {
-
-    width: 38px;
-
-    height: 38px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-shrink: 0;
-
-  }
-
-
-  .trade-selected-mini img {
-
-    width: 36px;
-
-    height: 36px;
-
-    object-fit: contain;
-
-  }
-
-
-  @media (max-width: 700px) {
-
-    .trade-selector-tabs {
-
-      overflow-x: auto;
-
-      padding-left: 15px;
-
-      padding-right: 15px;
-
-    }
-
-
-    .trade-selector-selected {
-
-      flex-direction: column;
-
-      align-items: stretch;
-
-      padding: 15px;
-
-    }
-
-
-    #addSelectedTrade {
-
-      width: 100%;
-
-    }
-
-  }
-
-`;
-
-
-document.head.appendChild(
-  tradeSelectorStyle
 );

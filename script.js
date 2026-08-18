@@ -93,7 +93,7 @@ const items = [
   { name: "Ruby Diamond", value: "160M", category: "limited", image: "https://i.postimg.cc/9XGMSFbY/Ruby.webp" },
   { name: "Topaz Diamond", value: "220M", category: "limited", image: "https://i.postimg.cc/VLgNfG3S/Topaz.webp" },
   { name: "Emerald Diamond", value: "220M", category: "limited", image: "https://i.postimg.cc/8zCzjdSZ/Emerald.webp" },
-  { name: "Rose Quartz Diamond", value: "350M", category: "limited", image: "https://i.postimg.cc/02PQqRHR/Rose-Quartz.webp },
+  { name: "Rose Quartz Diamond", value: "350M", category: "limited", image: "https://i.postimg.cc/02PQqRHR/Rose-Quartz.webp" },
 
   { name: "Werewolf", value: "1.06B", category: "limited", image: "https://i.postimg.cc/mr2jLmv5/Werewolf.png" },
 

@@ -1,0 +1,871 @@
+/* =========================
+   BASE FRUITVALUES
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0a12;
+  color: white;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 6%;
+
+  background: rgba(15, 15, 28, 0.92);
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid #24243a;
+}
+
+.logo,
+.footer-logo {
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.logo span,
+.footer-logo span {
+  color: #8b5cf6;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: #aaaabd;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: white;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 80px 20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      #31206b 0%,
+      transparent 35%
+    ),
+    #0a0a12;
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.badge {
+  display: inline-block;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: #17152b;
+  border: 1px solid #39315f;
+
+  color: #b79cff;
+
+  font-size: 14px;
+
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 7vw, 78px);
+  line-height: 1;
+
+  margin: 0 0 20px;
+
+  font-weight: 900;
+}
+
+.hero h1 span {
+  color: #8b5cf6;
+}
+
+.hero p {
+  color: #aaaabd;
+
+  font-size: 18px;
+  line-height: 1.7;
+
+  max-width: 650px;
+
+  margin: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 35px;
+}
+
+.button {
+  padding: 14px 24px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+.button-primary {
+  background: #7c4dff;
+  color: white;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  background: #936fff;
+}
+
+.button-secondary {
+  background: #171724;
+  color: white;
+
+  border: 1px solid #303047;
+}
+
+.button-secondary:hover {
+  background: #202033;
+}
+
+
+/* =========================
+   VALUES
+========================= */
+
+.values {
+  padding: 90px 6%;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+  text-align: center;
+
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 40px;
+
+  margin: 0 0 10px;
+}
+
+.section-title p {
+  color: #77778d;
+
+  margin: 0;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.category-buttons {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 0 auto 30px;
+
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 12px 24px;
+
+  border-radius: 11px;
+
+  border: 1px solid #303047;
+
+  background: #151522;
+
+  color: #aaaabd;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.category-btn:hover {
+  color: white;
+
+  border-color: #7c4dff;
+
+  transform: translateY(-2px);
+}
+
+.category-btn.active {
+  background: #7c4dff;
+
+  color: white;
+
+  border-color: #7c4dff;
+
+  box-shadow:
+    0 8px 25px
+    rgba(124, 77, 255, 0.2);
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.values .search-area {
+  max-width: 800px;
+
+  margin: 0 auto 40px;
+
+  padding: 0;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+.search-box {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 16px 20px;
+
+  background: #151522;
+
+  border: 1px solid #303047;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 15px 40px
+    rgba(0, 0, 0, 0.25);
+}
+
+.search-box span {
+  font-size: 20px;
+}
+
+.search-box input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 16px;
+}
+
+.search-box input::placeholder {
+  color: #707086;
+}
+
+.search-box:focus-within {
+  border-color: #7c4dff;
+}
+
+
+/* =========================
+   VALUES GRID
+========================= */
+
+.values-grid {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(220px, 1fr)
+    );
+
+  gap: 18px;
+}
+
+
+/* =========================
+   VALUE CARD
+========================= */
+
+.value-card {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #181827,
+      #11111d
+    );
+
+  border: 1px solid #29293e;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  transition: 0.25s;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #7c4dff;
+
+  box-shadow:
+    0 15px 35px
+    rgba(124, 77, 255, 0.12);
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.value-image {
+  width: 62px;
+  height: 62px;
+
+  min-width: 62px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #0f0f19;
+
+  border: 1px solid #29293e;
+}
+
+.value-image img {
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+}
+
+.image-placeholder {
+  font-size: 28px;
+}
+
+
+/* =========================
+   VALUE INFO
+========================= */
+
+.value-info {
+  min-width: 0;
+}
+
+.value-info h3 {
+  margin: 0 0 8px;
+
+  font-size: 18px;
+
+  color: white;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.value-number {
+  color: #a78bfa;
+
+  font-size: 16px;
+
+  font-weight: 800;
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
+
+.no-results {
+  grid-column: 1 / -1;
+
+  text-align: center;
+
+  padding: 60px 20px;
+
+  color: #77778d;
+
+  font-size: 16px;
+}
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+.calculator {
+  padding: 90px 6%;
+
+  border-top: 1px solid #24243a;
+
+  background: #0d0d17;
+}
+
+.trade-calculator {
+  max-width: 900px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 120px 1fr;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.trade-side {
+  background: #151522;
+
+  border: 1px solid #29293e;
+
+  border-radius: 16px;
+
+  padding: 25px;
+
+  text-align: center;
+}
+
+.trade-side h3 {
+  margin-top: 0;
+}
+
+.trade-side input {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid #303047;
+
+  border-radius: 10px;
+
+  background: #0f0f19;
+
+  color: white;
+
+  outline: none;
+
+  font-size: 15px;
+}
+
+.trade-side input:focus {
+  border-color: #7c4dff;
+}
+
+
+/* =========================
+   MULTI TRADE
+========================= */
+
+.trade-fruit-row {
+  display: flex;
+
+  gap: 8px;
+
+  margin-bottom: 10px;
+}
+
+.trade-fruit-row input {
+  min-width: 0;
+}
+
+.trade-fruit-name {
+  flex: 1;
+}
+
+.trade-fruit-value {
+  width: 110px;
+}
+
+.remove-trade-fruit {
+  width: 38px;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #2a1b2b;
+
+  color: #ff6b6b;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+.remove-trade-fruit:hover {
+  background: #3a2020;
+}
+
+.add-trade-button {
+  width: 100%;
+
+  margin-top: 8px;
+
+  padding: 11px;
+
+  border: 1px solid #39315f;
+
+  border-radius: 9px;
+
+  background: #17152b;
+
+  color: #a78bfa;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.add-trade-button:hover {
+  background: #211d3d;
+
+  transform: translateY(-1px);
+}
+
+.trade-side > p {
+  margin-top: 18px;
+
+  color: #85859b;
+}
+
+.trade-side > p strong {
+  color: #a78bfa;
+}
+
+
+/* =========================
+   TRADE RESULT
+========================= */
+
+.trade-result {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#tradeResult {
+  width: 75px;
+  height: 75px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #17152b;
+
+  border: 1px solid #39315f;
+
+  font-weight: 900;
+
+  font-size: 18px;
+
+  color: #a78bfa;
+}
+
+
+/* =========================
+   CALCULATE BUTTON
+========================= */
+
+.calculate-button {
+  display: block;
+
+  margin: 30px auto 0;
+
+  padding: 14px 28px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #7c4dff;
+
+  color: white;
+
+  font-weight: 700;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.calculate-button:hover {
+  background: #936fff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   ADD FRUIT
+========================= */
+
+.add-fruit {
+  padding: 70px 20px 100px;
+
+  text-align: center;
+}
+
+.add-fruit h2 {
+  font-size: 32px;
+
+  margin-bottom: 25px;
+}
+
+.fruit-form {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.fruit-form input {
+  padding: 14px;
+
+  width: 220px;
+
+  border: 1px solid #2d2d4a;
+
+  border-radius: 10px;
+
+  background: #19192d;
+
+  color: white;
+
+  outline: none;
+}
+
+.fruit-form input:focus {
+  border-color: #7c4dff;
+}
+
+.fruit-form button {
+  padding: 14px 24px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #7c4dff;
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.fruit-form button:hover {
+  background: #936fff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  border-top: 1px solid #24243a;
+
+  padding: 35px 6%;
+
+  text-align: center;
+
+  color: #68687c;
+
+  background: #08080e;
+}
+
+.footer-logo {
+  margin-bottom: 10px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  header {
+    padding: 15px 20px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    min-height: 470px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .values {
+    padding: 65px 20px;
+  }
+
+  .calculator {
+    padding: 65px 20px;
+  }
+
+  .category-buttons {
+    gap: 8px;
+  }
+
+  .category-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trade-calculator {
+    grid-template-columns: 1fr;
+  }
+
+  .trade-result {
+    transform: rotate(90deg);
+  }
+
+  /* Garde W / F / L droit */
+  #tradeResult {
+    transform: rotate(-90deg);
+  }
+
+  .trade-fruit-row {
+    flex-wrap: wrap;
+  }
+
+  .trade-fruit-name {
+    width: 100%;
+    flex: none;
+  }
+
+  .trade-fruit-value {
+    flex: 1;
+  }
+
+  .fruit-form {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .fruit-form input,
+  .fruit-form button {
+    width: min(100%, 320px);
+  }
+
+}

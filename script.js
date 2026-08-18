@@ -71,54 +71,54 @@ const items = [
      LIMITEDS
   ========================= */
 
-  { name: "Orange Portal", value: "N/A", category: "limited" },
-  { name: "Nuclear Bomb", value: "610M", category: "limited" },
-  { name: "Thermite Bomb", value: "580M", category: "limited" },
-  { name: "Azura Bomb", value: "640M", category: "limited" },
-  { name: "Celebration Bomb", value: "10M", category: "limited" },
+  { name: "Orange Portal", value: "N/A", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
+  { name: "Nuclear Bomb", value: "610M", category: "limited", image: "https://i.postimg.cc/QNQdjNvs/Nuclear-Bomb.png" },
+  { name: "Thermite Bomb", value: "580M", category: "limited", image: "https://i.postimg.cc/T2V3T2Bf/Thermite-Bomb.png" },
+  { name: "Azura Bomb", value: "640M", category: "limited", image: "https://i.postimg.cc/PfW5df9K/Azura-Bomb.png" },
+  { name: "Celebration Bomb", value: "10M", category: "limited", image: "https://i.postimg.cc/Jh4xrpf6/Celebration-Bomb.png" },
 
-  { name: "Eagle Matrix", value: "250M", category: "limited" },
-  { name: "Eagle Glacier", value: "20M", category: "limited" },
-  { name: "Eagle Requiem", value: "160M", category: "limited" },
+  { name: "Eagle Matrix", value: "250M", category: "limited", image: "https://i.postimg.cc/446xX4qD/Eagle-Matrix.png" },
+  { name: "Eagle Glacier", value: "20M", category: "limited", image: "https://i.postimg.cc/qBsvpBWV/Eagle-Glacier.png" },
+  { name: "Eagle Requiem", value: "160M", category: "limited", image: "https://i.postimg.cc/7P3ZqPjr/Eagle-Requiem.png" },
 
-  { name: "Celestial Pain", value: "1.02B", category: "limited" },
-  { name: "Frustration Pain", value: "900M", category: "limited" },
-  { name: "Sadness Pain", value: "860M", category: "limited" },
-  { name: "Torment Pain", value: "160M", category: "limited" },
-  { name: "Super Spirit Pain", value: "3.3B", category: "limited" },
+  { name: "Celestial Pain", value: "1.02B", category: "limited", image: "https://i.postimg.cc/RC7ZvC2r/Celestial-Pain.png" },
+  { name: "Frustration Pain", value: "900M", category: "limited", image: "https://i.postimg.cc/26WCvwZP/Frustration.png" },
+  { name: "Sadness Pain", value: "860M", category: "limited", image: "https://i.postimg.cc/C5VS4qCd/Sadness.png" },
+  { name: "Torment Pain", value: "160M", category: "limited", image: "https://i.postimg.cc/T1qGN3Q0/Torment.png" },
+  { name: "Super Spirit Pain", value: "3.3B", category: "limited", image: "https://i.postimg.cc/Xv7LjsRD/Super-Spirit-Pain.png" },
 
-  { name: "Ecipse", value: "N/A", category: "limited" },
-  { name: "Dragon Token", value: "N/A", category: "limited" },
+  { name: "Ecipse", value: "N/A", category: "limited", image: "https://i.postimg.cc/65MLTkG9/Eclipse.png" },
+  { name: "Dragon Token", value: "N/A", category: "limited", image: "https://i.postimg.cc/hPYzkcd7/Dragon-Token.png" },
 
-  { name: "Ruby Diamond", value: "160M", category: "limited" },
-  { name: "Topaz Diamond", value: "220M", category: "limited" },
-  { name: "Emerald Diamond", value: "220M", category: "limited" },
-  { name: "Rose Quartz Diamond", value: "350M", category: "limited" },
+  { name: "Ruby Diamond", value: "160M", category: "limited", image: "https://i.postimg.cc/9XGMSFbY/Ruby.webp" },
+  { name: "Topaz Diamond", value: "220M", category: "limited", image: "https://i.postimg.cc/VLgNfG3S/Topaz.webp" },
+  { name: "Emerald Diamond", value: "220M", category: "limited", image: "https://i.postimg.cc/8zCzjdSZ/Emerald.webp" },
+  { name: "Rose Quartz Diamond", value: "350M", category: "limited", image: "https://i.postimg.cc/02PQqRHR/Rose-Quartz.webp },
 
-  { name: "Werewolf", value: "1.06B", category: "limited" },
+  { name: "Werewolf", value: "1.06B", category: "limited", image: "https://i.postimg.cc/mr2jLmv5/Werewolf.png" },
 
-  { name: "Green Lightning", value: "410M", category: "limited" },
-  { name: "Yellow Lightning", value: "1.76B", category: "limited" },
-  { name: "Red Lightning", value: "2.88B", category: "limited" },
+  { name: "Green Lightning", value: "410M", category: "limited", image: "https://i.postimg.cc/MKcKbW5Z/Green-Lightning.png" },
+  { name: "Yellow Lightning", value: "1.76B", category: "limited", image: "https://i.postimg.cc/cLwx2XPV/Yellow-Lightning.png" },
+  { name: "Red Lightning", value: "2.88B", category: "limited", image: "https://i.postimg.cc/s2DmjTkH/Red-Lightning.png" },
 
-  { name: "Parrot", value: "N/A", category: "limited" },
-  { name: "Purple Lightning", value: "5.34B", category: "limited" },
+  { name: "Parrot", value: "N/A", category: "limited", image: "https://i.postimg.cc/dt3ZNLLY/Parrot.png" },
+  { name: "Purple Lightning", value: "5.34B", category: "limited", image: "https://i.postimg.cc/d0FsYGYD/Purple-Lightning.png" },
 
-  { name: "Divine Portal", value: "1.67B", category: "limited" },
+  { name: "Divine Portal", value: "1.67B", category: "limited", image: "https://i.postimg.cc/htF9sFwc/latest-cb-20251225222313.webp" },
 
-  { name: "MEME-FRUIT", value: "4.61B", category: "limited" },
+  { name: "MEME-FRUIT", value: "4.61B", category: "limited", image: "https://i.postimg.cc/KYLd2W5J/latest-cb-20260402183037.webp" },
 
-  { name: "Crimson Kitsune", value: "8.7B", category: "limited" },
-  { name: "Ember West Dragon", value: "7.1B", category: "limited" },
-  { name: "Galaxy Empyrean Kitsune", value: "11.96B", category: "limited" },
+  { name: "Crimson Kitsune", value: "8.7B", category: "limited", image: "https://i.postimg.cc/dtg9fZh5/latest-cb-20251225145618.webp" },
+  { name: "Ember West Dragon", value: "7.1B", category: "limited", image: "https://i.postimg.cc/k5JRY7vf/latest-cb-20251226164613.webp" },
+  { name: "Galaxy Empyrean Kitsune", value: "11.96B", category: "limited", image: "https://i.postimg.cc/k5JRY7vf/latest-cb-20251226164613.webp" },
 
-  { name: "Fiend Yeti", value: "960M", category: "limited" },
+  { name: "Fiend Yeti", value: "960M", category: "limited", image: "https://i.postimg.cc/fbBmGbCv/latest-cb-20260214132352.webp" },
 
-  { name: "Dog Blade", value: "580M", category: "limited" },
-  { name: "Rabid Dog Blade", value: "6.24B", category: "limited" },
-  { name: "Dog House (Frame Break)", value: "6.97B", category: "limited" },
+  { name: "Dog Blade", value: "580M", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
+  { name: "Rabid Dog Blade", value: "6.24B", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
+  { name: "Dog House (Frame Break)", value: "6.97B", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
 
-  { name: "Permanent Dragon Token", value: "N/A", category: "limited" }
+  { name: "Permanent Dragon Token", value: "N/A", category: "limited", image: "https://i.postimg.cc/59nFmw9g/Permanent-Dragon-Token.png" }
 
 ];
 

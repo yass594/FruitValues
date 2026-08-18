@@ -74,47 +74,35 @@ const items = [
   { name: "Thermite Bomb", value: "580M", category: "limited", image: "https://i.postimg.cc/T2V3T2Bf/Thermite-Bomb.png" },
   { name: "Azura Bomb", value: "640M", category: "limited", image: "https://i.postimg.cc/PfW5df9K/Azura-Bomb.png" },
   { name: "Celebration Bomb", value: "10M", category: "limited", image: "https://i.postimg.cc/Jh4xrpf6/Celebration-Bomb.png" },
-
   { name: "Eagle Matrix", value: "250M", category: "limited", image: "https://i.postimg.cc/446xX4qD/Eagle-Matrix.png" },
   { name: "Eagle Glacier", value: "20M", category: "limited", image: "https://i.postimg.cc/qBsvpBWV/Eagle-Glacier.png" },
   { name: "Eagle Requiem", value: "160M", category: "limited", image: "https://i.postimg.cc/7P3ZqPjr/Eagle-Requiem.png" },
-
   { name: "Celestial Pain", value: "1.02B", category: "limited", image: "https://i.postimg.cc/RC7ZvC2r/Celestial-Pain.png" },
   { name: "Frustration Pain", value: "900M", category: "limited", image: "https://i.postimg.cc/26WCvwZP/Frustration.png" },
   { name: "Sadness Pain", value: "860M", category: "limited", image: "https://i.postimg.cc/C5VS4qCd/Sadness.png" },
   { name: "Torment Pain", value: "160M", category: "limited", image: "https://i.postimg.cc/T1qGN3Q0/Torment.png" },
   { name: "Super Spirit Pain", value: "3.3B", category: "limited", image: "https://i.postimg.cc/Xv7LjsRD/Super-Spirit-Pain.png" },
-
   { name: "Ecipse", value: "N/A", category: "limited", image: "https://i.postimg.cc/65MLTkG9/Eclipse.png" },
   { name: "Dragon Token", value: "N/A", category: "limited", image: "https://i.postimg.cc/hPYzkcd7/Dragon-Token.png" },
-
   { name: "Ruby Diamond", value: "160M", category: "limited", image: "https://i.postimg.cc/9XGMSFbY/Ruby.webp" },
   { name: "Topaz Diamond", value: "220M", category: "limited", image: "https://i.postimg.cc/VLgNfG3S/Topaz.webp" },
   { name: "Emerald Diamond", value: "220M", category: "limited", image: "https://i.postimg.cc/8zCzjdSZ/Emerald.webp" },
   { name: "Rose Quartz Diamond", value: "350M", category: "limited", image: "https://i.postimg.cc/02PQqRHR/Rose-Quartz.webp" },
-
   { name: "Werewolf", value: "1.06B", category: "limited", image: "https://i.postimg.cc/mr2jLmv5/Werewolf.png" },
-
   { name: "Green Lightning", value: "410M", category: "limited", image: "https://i.postimg.cc/MKcKbW5Z/Green-Lightning.png" },
   { name: "Yellow Lightning", value: "1.76B", category: "limited", image: "https://i.postimg.cc/cLwx2XPV/Yellow-Lightning.png" },
   { name: "Red Lightning", value: "2.88B", category: "limited", image: "https://i.postimg.cc/s2DmjTkH/Red-Lightning.png" },
-
   { name: "Parrot", value: "N/A", category: "limited", image: "https://i.postimg.cc/dt3ZNLLY/Parrot.png" },
   { name: "Purple Lightning", value: "5.34B", category: "limited", image: "https://i.postimg.cc/d0FsYGYD/Purple-Lightning.png" },
-
   { name: "Divine Portal", value: "1.67B", category: "limited", image: "https://i.postimg.cc/htF9sFwc/latest-cb-20251225222313.webp" },
   { name: "MEME-FRUIT", value: "4.61B", category: "limited", image: "https://i.postimg.cc/KYLd2W5J/latest-cb-20260402183037.webp" },
-
   { name: "Crimson Kitsune", value: "8.7B", category: "limited", image: "https://i.postimg.cc/dtg9fZh5/latest-cb-20251225145618.webp" },
   { name: "Ember West Dragon", value: "7.1B", category: "limited", image: "https://i.postimg.cc/k5JRY7vf/latest-cb-20251226164613.webp" },
   { name: "Galaxy Empyrean Kitsune", value: "11.96B", category: "limited", image: "https://i.postimg.cc/k5JRY7vf/latest-cb-20251226164613.webp" },
-
   { name: "Fiend Yeti", value: "960M", category: "limited", image: "https://i.postimg.cc/fbBmGbCv/latest-cb-20260214132352.webp" },
-
   { name: "Dog Blade", value: "580M", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
   { name: "Rabid Dog Blade", value: "6.24B", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
   { name: "Dog House (Frame Break)", value: "6.97B", category: "limited", image: "https://i.postimg.cc/RhvjdZB9/placeholder.png" },
-
   { name: "Permanent Dragon Token", value: "N/A", category: "limited", image: "https://i.postimg.cc/59nFmw9g/Permanent-Dragon-Token.png" }
 
 ];
@@ -126,9 +114,12 @@ const items = [
 
 function valueToNumber(value) {
 
-  if (!value || value === "N/A") return 0;
+  if (!value || value === "N/A") {
+    return 0;
+  }
 
-  const cleanValue = String(value)
+  let cleanValue = String(value)
+    .replace(/\s/g, "")
     .replace(",", ".")
     .trim()
     .toUpperCase();
@@ -155,7 +146,7 @@ function formatNumber(number) {
 
 
 /* =========================================================
-   VALEURS
+   VALUES
 ========================================================= */
 
 const valuesList = document.getElementById("valuesList");
@@ -196,15 +187,10 @@ function displayValues() {
 
   valuesList.innerHTML = "";
 
-  const filteredItems = items.filter(function(item) {
-
-    return (
-      item.category === currentCategory &&
-      item.name.toLowerCase().includes(search)
-    );
-
-  });
-
+  const filteredItems = items.filter(item =>
+    item.category === currentCategory &&
+    item.name.toLowerCase().includes(search)
+  );
 
   if (filteredItems.length === 0) {
 
@@ -217,8 +203,7 @@ function displayValues() {
     return;
   }
 
-
-  filteredItems.forEach(function(item) {
+  filteredItems.forEach(item => {
 
     const card = document.createElement("div");
 
@@ -249,20 +234,20 @@ displayValues();
 
 
 /* =========================================================
-   CATÉGORIES PRINCIPALES
+   CATEGORIES PRINCIPALES
 ========================================================= */
 
 const categoryButtons =
   document.querySelectorAll(".category-btn");
 
 
-categoryButtons.forEach(function(button) {
+categoryButtons.forEach(button => {
 
-  button.addEventListener("click", function() {
+  button.addEventListener("click", () => {
 
-    categoryButtons.forEach(function(btn) {
-      btn.classList.remove("active");
-    });
+    categoryButtons.forEach(btn =>
+      btn.classList.remove("active")
+    );
 
     button.classList.add("active");
 
@@ -280,15 +265,9 @@ categoryButtons.forEach(function(button) {
 });
 
 
-/* =========================================================
-   RECHERCHE PRINCIPALE
-========================================================= */
-
 if (searchInput) {
 
-  searchInput.addEventListener("input", function() {
-    displayValues();
-  });
+  searchInput.addEventListener("input", displayValues);
 
 }
 
@@ -307,79 +286,48 @@ const addFruitButton =
   document.getElementById("addFruitButton");
 
 
-if (
-  addFruitButton &&
-  fruitName &&
-  fruitValue
-) {
+if (addFruitButton && fruitName && fruitValue) {
 
-  addFruitButton.addEventListener("click", function() {
+  addFruitButton.addEventListener("click", () => {
 
-    const name =
-      fruitName.value.trim();
+    const name = fruitName.value.trim();
+    const value = Number(fruitValue.value);
 
-    const value =
-      Number(fruitValue.value);
+    if (name === "" || fruitValue.value === "") {
 
-
-    if (
-      name === "" ||
-      fruitValue.value === ""
-    ) {
-
-      alert(
-        "Remplis le nom et la valeur du fruit !"
-      );
+      alert("Remplis le nom et la valeur du fruit !");
 
       return;
     }
-
 
     if (value < 0) {
 
-      alert(
-        "La valeur ne peut pas être négative !"
-      );
+      alert("La valeur ne peut pas être négative !");
 
       return;
     }
 
-
     items.push({
-
       name: name,
-
       value: formatNumber(value),
-
       category: "fruit",
-
       custom: true,
-
       image: null
-
     });
-
 
     currentCategory = "fruit";
 
-
-    categoryButtons.forEach(function(button) {
+    categoryButtons.forEach(button => {
 
       button.classList.remove("active");
 
-      if (
-        button.dataset.category === "fruit"
-      ) {
-
+      if (button.dataset.category === "fruit") {
         button.classList.add("active");
-
       }
 
     });
 
-
     displayValues();
-
 
     fruitName.value = "";
     fruitValue.value = "";
@@ -392,20 +340,32 @@ if (
 
 
 /* =========================================================
-   TRADE CALCULATOR 
+   TRADE CALCULATOR
 ========================================================= */
 
-const yourTradeList = document.getElementById("yourTradeList");
-const theirTradeList = document.getElementById("theirTradeList");
+const yourTradeList =
+  document.getElementById("yourTradeList");
 
-const yourTotal = document.getElementById("yourTotal");
-const theirTotal = document.getElementById("theirTotal");
+const theirTradeList =
+  document.getElementById("theirTradeList");
 
-const addYourFruit = document.getElementById("addYourFruit");
-const addTheirFruit = document.getElementById("addTheirFruit");
+const yourTotal =
+  document.getElementById("yourTotal");
 
-const calculateTrade = document.getElementById("calculateTrade");
-const tradeResult = document.getElementById("tradeResult");
+const theirTotal =
+  document.getElementById("theirTotal");
+
+const addYourFruit =
+  document.getElementById("addYourFruit");
+
+const addTheirFruit =
+  document.getElementById("addTheirFruit");
+
+const calculateTrade =
+  document.getElementById("calculateTrade");
+
+const tradeResult =
+  document.getElementById("tradeResult");
 
 
 /* =========================================================
@@ -414,21 +374,23 @@ const tradeResult = document.getElementById("tradeResult");
 
 function updateTradeCounters() {
 
-  const fruitCount = items.filter(
-    item => item.category === "fruit"
-  ).length;
+  const fruitCount =
+    items.filter(item => item.category === "fruit").length;
 
-  const gamepassCount = items.filter(
-    item => item.category === "gamepass"
-  ).length;
+  const gamepassCount =
+    items.filter(item => item.category === "gamepass").length;
 
-  const limitedCount = items.filter(
-    item => item.category === "limited"
-  ).length;
+  const limitedCount =
+    items.filter(item => item.category === "limited").length;
 
-  const fruitCounter = document.getElementById("fruitCount");
-  const gamepassCounter = document.getElementById("gamepassCount");
-  const limitedCounter = document.getElementById("limitedCount");
+  const fruitCounter =
+    document.getElementById("fruitCount");
+
+  const gamepassCounter =
+    document.getElementById("gamepassCount");
+
+  const limitedCounter =
+    document.getElementById("limitedCount");
 
   if (fruitCounter) {
     fruitCounter.textContent = fruitCount;
@@ -441,11 +403,12 @@ function updateTradeCounters() {
   if (limitedCounter) {
     limitedCounter.textContent = limitedCount;
   }
+
 }
 
 
 /* =========================================================
-   VARIABLES SELECTEUR
+   SELECTEUR TRADE
 ========================================================= */
 
 let currentTradeContainer = null;
@@ -454,14 +417,17 @@ let selectedTradeItem = null;
 
 
 /* =========================================================
-   CREATION DU SELECTEUR
+   CREER LE SELECTEUR
 ========================================================= */
 
-const selectorOverlay = document.createElement("div");
+const selectorOverlay =
+  document.createElement("div");
 
-selectorOverlay.className = "trade-selector-overlay";
+selectorOverlay.className =
+  "trade-selector-overlay";
 
-selectorOverlay.style.display = "none";
+selectorOverlay.style.display =
+  "none";
 
 selectorOverlay.innerHTML = `
 
@@ -470,8 +436,13 @@ selectorOverlay.innerHTML = `
     <div class="trade-selector-header">
 
       <div>
+
         <small>TRADE CALCULATOR</small>
-        <h2>Choisir un élément</h2>
+
+        <h2>
+          Choisir un élément
+        </h2>
+
       </div>
 
       <button
@@ -489,24 +460,32 @@ selectorOverlay.innerHTML = `
         type="button"
         class="selector-tab active"
         data-selector-category="fruit">
+
         🍎 Fruits
         <b id="fruitCount">0</b>
+
       </button>
+
 
       <button
         type="button"
         class="selector-tab"
         data-selector-category="gamepass">
+
         🎟️ Game Pass
         <b id="gamepassCount">0</b>
+
       </button>
+
 
       <button
         type="button"
         class="selector-tab"
         data-selector-category="limited">
+
         ⭐ Limiteds
         <b id="limitedCount">0</b>
+
       </button>
 
     </div>
@@ -519,7 +498,8 @@ selectorOverlay.innerHTML = `
       <input
         type="text"
         id="tradeSelectorSearch"
-        placeholder="Rechercher un élément...">
+        placeholder="Rechercher un élément..."
+        autocomplete="off">
 
     </div>
 
@@ -558,7 +538,9 @@ selectorOverlay.innerHTML = `
       <button
         type="button"
         id="addSelectedTrade">
+
         Ajouter au trade
+
       </button>
 
     </div>
@@ -572,7 +554,7 @@ document.body.appendChild(selectorOverlay);
 
 
 /* =========================================================
-   ELEMENTS DU SELECTEUR
+   ELEMENTS SELECTEUR
 ========================================================= */
 
 const closeTradeSelector =
@@ -600,129 +582,11 @@ const addSelectedTrade =
   document.getElementById("addSelectedTrade");
 
 
-/* =========================================================
-   COMPTEURS — APRES CREATION DU SELECTEUR
-========================================================= */
-
 updateTradeCounters();
 
 
 /* =========================================================
-   OUVRIR LE SELECTEUR
-========================================================= */
-
-function openTradeSelector(container) {
-
-  if (!container) {
-    return;
-  }
-
-  currentTradeContainer = container;
-
-  selectedTradeItem = null;
-
-  selectorCategory = "fruit";
-
-
-  if (tradeSelectorSearch) {
-    tradeSelectorSearch.value = "";
-  }
-
-
-  selectorTabs.forEach(function(tab) {
-
-    tab.classList.remove("active");
-
-    if (
-      tab.dataset.selectorCategory === "fruit"
-    ) {
-      tab.classList.add("active");
-    }
-
-  });
-
-
-  if (selectedTradeName) {
-    selectedTradeName.textContent =
-      "Sélectionne un élément";
-  }
-
-
-  if (selectedTradeValue) {
-    selectedTradeValue.textContent =
-      "Valeur : -";
-  }
-
-
-  if (selectedTradeImage) {
-    selectedTradeImage.innerHTML = "🍎";
-  }
-
-
-  selectorOverlay.style.display = "flex";
-
-
-  displayTradeSelector();
-
-}
-
-
-/* =========================================================
-   FERMER LE SELECTEUR
-========================================================= */
-
-function closeSelector() {
-
-  selectorOverlay.style.display = "none";
-
-  currentTradeContainer = null;
-
-  selectedTradeItem = null;
-
-}
-
-
-/* =========================================================
-   CROIX
-========================================================= */
-
-if (closeTradeSelector) {
-
-  closeTradeSelector.addEventListener(
-    "click",
-    function(event) {
-
-      event.preventDefault();
-      event.stopPropagation();
-
-      closeSelector();
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   CLIQUER EN DEHORS
-========================================================= */
-
-selectorOverlay.addEventListener(
-  "click",
-  function(event) {
-
-    if (event.target === selectorOverlay) {
-
-      closeSelector();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   AFFICHER LES ELEMENTS
+   AFFICHER LE SELECTEUR
 ========================================================= */
 
 function displayTradeSelector() {
@@ -731,17 +595,14 @@ function displayTradeSelector() {
     return;
   }
 
-
   const search =
     tradeSelectorSearch
       ? tradeSelectorSearch.value.toLowerCase().trim()
       : "";
 
-
   tradeSelectorGrid.innerHTML = "";
 
-
-  const filteredItems = items.filter(function(item) {
+  const filteredItems = items.filter(item => {
 
     return (
       item.category === selectorCategory &&
@@ -764,11 +625,10 @@ function displayTradeSelector() {
   }
 
 
-  filteredItems.forEach(function(item) {
+  filteredItems.forEach(item => {
 
     const card =
       document.createElement("button");
-
 
     card.type = "button";
 
@@ -776,13 +636,12 @@ function displayTradeSelector() {
       "trade-selector-item";
 
 
-    let imageHTML = "";
+    let imageHTML;
 
 
     if (item.image) {
 
       imageHTML = `
-
         <img
           src="${item.image}"
           alt="${item.name}"
@@ -799,7 +658,6 @@ function displayTradeSelector() {
           style="display:none;">
           🍎
         </div>
-
       `;
 
     } else {
@@ -830,17 +688,14 @@ function displayTradeSelector() {
     `;
 
 
-    card.addEventListener(
-      "click",
-      function(event) {
+    card.addEventListener("click", event => {
 
-        event.preventDefault();
-        event.stopPropagation();
+      event.preventDefault();
+      event.stopPropagation();
 
-        selectTradeItem(item);
+      selectTradeItem(item);
 
-      }
-    );
+    });
 
 
     tradeSelectorGrid.appendChild(card);
@@ -851,16 +706,94 @@ function displayTradeSelector() {
 
 
 /* =========================================================
-   RECHERCHE
+   OUVRIR SELECTEUR
 ========================================================= */
 
-if (tradeSelectorSearch) {
+function openTradeSelector(container) {
 
-  tradeSelectorSearch.addEventListener(
-    "input",
-    function() {
+  if (!container) {
+    return;
+  }
 
-      displayTradeSelector();
+  currentTradeContainer = container;
+
+  selectedTradeItem = null;
+
+  selectorCategory = "fruit";
+
+
+  if (tradeSelectorSearch) {
+    tradeSelectorSearch.value = "";
+  }
+
+
+  selectorTabs.forEach(tab => {
+
+    tab.classList.remove("active");
+
+    if (
+      tab.dataset.selectorCategory === "fruit"
+    ) {
+      tab.classList.add("active");
+    }
+
+  });
+
+
+  if (selectedTradeName) {
+    selectedTradeName.textContent =
+      "Sélectionne un élément";
+  }
+
+
+  if (selectedTradeValue) {
+    selectedTradeValue.textContent =
+      "Valeur : -";
+  }
+
+
+  if (selectedTradeImage) {
+    selectedTradeImage.innerHTML = "🍎";
+  }
+
+
+  selectorOverlay.style.display =
+    "flex";
+
+
+  displayTradeSelector();
+
+}
+
+
+/* =========================================================
+   FERMER
+========================================================= */
+
+function closeSelector() {
+
+  selectorOverlay.style.display =
+    "none";
+
+  currentTradeContainer =
+    null;
+
+  selectedTradeItem =
+    null;
+
+}
+
+
+if (closeTradeSelector) {
+
+  closeTradeSelector.addEventListener(
+    "click",
+    event => {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      closeSelector();
 
     }
   );
@@ -868,58 +801,73 @@ if (tradeSelectorSearch) {
 }
 
 
+selectorOverlay.addEventListener(
+  "click",
+  event => {
+
+    if (event.target === selectorOverlay) {
+      closeSelector();
+    }
+
+  }
+);
+
+
 /* =========================================================
-   CATEGORIES
+   RECHERCHE SELECTEUR
 ========================================================= */
 
-selectorTabs.forEach(function(tab) {
+if (tradeSelectorSearch) {
+
+  tradeSelectorSearch.addEventListener(
+    "input",
+    displayTradeSelector
+  );
+
+}
+
+
+/* =========================================================
+   ONGLETS SELECTEUR
+========================================================= */
+
+selectorTabs.forEach(tab => {
 
   tab.addEventListener(
     "click",
-    function(event) {
+    event => {
 
       event.preventDefault();
       event.stopPropagation();
 
-
-      selectorTabs.forEach(function(otherTab) {
-
-        otherTab.classList.remove("active");
-
-      });
-
+      selectorTabs.forEach(otherTab =>
+        otherTab.classList.remove("active")
+      );
 
       tab.classList.add("active");
 
-
       selectorCategory =
         tab.dataset.selectorCategory;
-
 
       if (tradeSelectorSearch) {
         tradeSelectorSearch.value = "";
       }
 
-
       selectedTradeItem = null;
-
 
       if (selectedTradeName) {
         selectedTradeName.textContent =
           "Sélectionne un élément";
       }
 
-
       if (selectedTradeValue) {
         selectedTradeValue.textContent =
           "Valeur : -";
       }
 
-
       if (selectedTradeImage) {
         selectedTradeImage.innerHTML = "🍎";
       }
-
 
       displayTradeSelector();
 
@@ -930,7 +878,7 @@ selectorTabs.forEach(function(tab) {
 
 
 /* =========================================================
-   SELECTIONNER UN ELEMENT
+   SELECTIONNER ITEM
 ========================================================= */
 
 function selectTradeItem(item) {
@@ -988,34 +936,29 @@ function selectTradeItem(item) {
 
 
 /* =========================================================
-   AJOUTER AU TRADE
+   AJOUTER ITEM AU TRADE
 ========================================================= */
 
 if (addSelectedTrade) {
 
   addSelectedTrade.addEventListener(
     "click",
-    function(event) {
+    event => {
 
       event.preventDefault();
       event.stopPropagation();
-
 
       if (
         !selectedTradeItem ||
         !currentTradeContainer
       ) {
-
         return;
-
       }
-
 
       addSelectedItemToTrade(
         currentTradeContainer,
         selectedTradeItem
       );
-
 
       closeSelector();
 
@@ -1026,7 +969,7 @@ if (addSelectedTrade) {
 
 
 /* =========================================================
-   AJOUTER UNE LIGNE AU TRADE
+   AJOUTER LIGNE
 ========================================================= */
 
 function addSelectedItemToTrade(
@@ -1042,18 +985,16 @@ function addSelectedItemToTrade(
   const row =
     document.createElement("div");
 
-
   row.className =
     "trade-fruit-row";
 
 
-  let imageHTML = "";
+  let imageHTML;
 
 
   if (item.image) {
 
     imageHTML = `
-
       <img
         src="${item.image}"
         alt="${item.name}"
@@ -1070,7 +1011,6 @@ function addSelectedItemToTrade(
         style="display:none;">
         🍎
       </div>
-
     `;
 
   } else {
@@ -1090,7 +1030,6 @@ function addSelectedItemToTrade(
       ${imageHTML}
     </div>
 
-
     <input
       type="text"
       class="trade-fruit-name"
@@ -1098,14 +1037,12 @@ function addSelectedItemToTrade(
       readonly
     >
 
-
     <input
       type="text"
       class="trade-fruit-value"
       value="${item.value}"
       readonly
     >
-
 
     <button
       class="remove-trade-fruit"
@@ -1119,10 +1056,6 @@ function addSelectedItemToTrade(
   container.appendChild(row);
 
 
-  /* =====================================================
-     CROIX POUR SUPPRIMER UN ELEMENT DU TRADE
-  ===================================================== */
-
   const removeButton =
     row.querySelector(".remove-trade-fruit");
 
@@ -1131,7 +1064,7 @@ function addSelectedItemToTrade(
 
     removeButton.addEventListener(
       "click",
-      function(event) {
+      event => {
 
         event.preventDefault();
         event.stopPropagation();
@@ -1159,14 +1092,12 @@ if (addYourFruit && yourTradeList) {
 
   addYourFruit.addEventListener(
     "click",
-    function(event) {
+    event => {
 
       event.preventDefault();
       event.stopPropagation();
 
-      openTradeSelector(
-        yourTradeList
-      );
+      openTradeSelector(yourTradeList);
 
     }
   );
@@ -1182,14 +1113,12 @@ if (addTheirFruit && theirTradeList) {
 
   addTheirFruit.addEventListener(
     "click",
-    function(event) {
+    event => {
 
       event.preventDefault();
       event.stopPropagation();
 
-      openTradeSelector(
-        theirTradeList
-      );
+      openTradeSelector(theirTradeList);
 
     }
   );
@@ -1198,7 +1127,7 @@ if (addTheirFruit && theirTradeList) {
 
 
 /* =========================================================
-   CALCUL TOTAL
+   TOTAL
 ========================================================= */
 
 function calculateTotal(container) {
@@ -1217,7 +1146,7 @@ function calculateTotal(container) {
     );
 
 
-  rows.forEach(function(row) {
+  rows.forEach(row => {
 
     const valueInput =
       row.querySelector(
@@ -1242,36 +1171,27 @@ function calculateTotal(container) {
 
 
 /* =========================================================
-   METTRE A JOUR LES TOTAUX
+   UPDATE TOTALS
 ========================================================= */
 
 function updateTradeTotals() {
 
   const yourValue =
-    calculateTotal(
-      yourTradeList
-    );
-
+    calculateTotal(yourTradeList);
 
   const theirValue =
-    calculateTotal(
-      theirTradeList
-    );
+    calculateTotal(theirTradeList);
 
 
   if (yourTotal) {
-
     yourTotal.textContent =
       formatNumber(yourValue);
-
   }
 
 
   if (theirTotal) {
-
     theirTotal.textContent =
       formatNumber(theirValue);
-
   }
 
 }
@@ -1285,21 +1205,15 @@ if (calculateTrade) {
 
   calculateTrade.addEventListener(
     "click",
-    function(event) {
+    event => {
 
       event.preventDefault();
 
-
       const offer =
-        calculateTotal(
-          yourTradeList
-        );
-
+        calculateTotal(yourTradeList);
 
       const receive =
-        calculateTotal(
-          theirTradeList
-        );
+        calculateTotal(theirTradeList);
 
 
       if (
@@ -1312,7 +1226,6 @@ if (calculateTrade) {
         );
 
         return;
-
       }
 
 
@@ -1359,12 +1272,12 @@ if (calculateTrade) {
 
 
 /* =========================================================
-   ESC POUR FERMER
+   ESC
 ========================================================= */
 
 document.addEventListener(
   "keydown",
-  function(event) {
+  event => {
 
     if (
       event.key === "Escape" &&
@@ -1386,14 +1299,12 @@ document.addEventListener(
 const tradeSelectorStyle =
   document.createElement("style");
 
-
 tradeSelectorStyle.textContent = `
 
 .trade-selector-overlay {
 
   position: fixed;
   inset: 0;
-
   z-index: 99999;
 
   display: none;
@@ -1413,11 +1324,9 @@ tradeSelectorStyle.textContent = `
 .trade-selector {
 
   width: min(900px, 100%);
-
   max-height: 90vh;
 
   display: flex;
-
   flex-direction: column;
 
   overflow: hidden;
@@ -1425,7 +1334,6 @@ tradeSelectorStyle.textContent = `
   background: #10101b;
 
   border: 1px solid #29293e;
-
   border-radius: 18px;
 
   box-shadow: 0 25px 80px rgba(0,0,0,.65);
@@ -1436,9 +1344,7 @@ tradeSelectorStyle.textContent = `
 .trade-selector-header {
 
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
   padding: 20px 22px;
@@ -1474,7 +1380,6 @@ tradeSelectorStyle.textContent = `
   height: 38px;
 
   border: 1px solid #303047;
-
   border-radius: 9px;
 
   background: #181824;
@@ -1484,13 +1389,6 @@ tradeSelectorStyle.textContent = `
   font-size: 18px;
 
   cursor: pointer;
-
-}
-
-
-#closeTradeSelector:hover {
-
-  background: #29293e;
 
 }
 
@@ -1513,7 +1411,6 @@ tradeSelectorStyle.textContent = `
   padding: 10px 16px;
 
   border: 1px solid #303047;
-
   border-radius: 9px;
 
   background: #151522;
@@ -1523,15 +1420,6 @@ tradeSelectorStyle.textContent = `
   font-weight: 700;
 
   cursor: pointer;
-
-}
-
-
-.selector-tab:hover {
-
-  color: white;
-
-  border-color: #7c4dff;
 
 }
 
@@ -1551,8 +1439,6 @@ tradeSelectorStyle.textContent = `
 
   margin-left: 5px;
 
-  opacity: .8;
-
 }
 
 
@@ -1571,7 +1457,6 @@ tradeSelectorStyle.textContent = `
   height: 45px;
 
   border: 1px solid #303047;
-
   border-radius: 10px;
 
   background: #151522;
@@ -1582,11 +1467,9 @@ tradeSelectorStyle.textContent = `
 .trade-selector-search input {
 
   width: 100%;
-
   height: 100%;
 
   border: none;
-
   outline: none;
 
   background: transparent;
@@ -1629,7 +1512,6 @@ tradeSelectorStyle.textContent = `
   padding: 12px;
 
   border: 1px solid #29293e;
-
   border-radius: 12px;
 
   background: #151522;
@@ -1637,8 +1519,6 @@ tradeSelectorStyle.textContent = `
   color: white;
 
   cursor: pointer;
-
-  transition: .15s;
 
 }
 
@@ -1648,8 +1528,6 @@ tradeSelectorStyle.textContent = `
   transform: translateY(-2px);
 
   border-color: #7c4dff;
-
-  background: #1b192a;
 
 }
 
@@ -1818,13 +1696,6 @@ tradeSelectorStyle.textContent = `
 }
 
 
-#addSelectedTrade:hover {
-
-  background: #936fff;
-
-}
-
-
 .trade-selected-mini {
 
   width: 42px;
@@ -1925,3 +1796,10 @@ tradeSelectorStyle.textContent = `
 document.head.appendChild(
   tradeSelectorStyle
 );
+
+
+/* =========================================================
+   FIN
+========================================================= */
+
+updateTradeTotals();

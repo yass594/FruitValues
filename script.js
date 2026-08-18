@@ -56,15 +56,15 @@ const items = [
      GAME PASS
   ========================= */
 
-  { name: "Fast Boats", value: "300M", category: "gamepass" },
-  { name: "2x Boss Drops", value: "300M", category: "gamepass" },
-  { name: "2x Money", value: "450M", category: "gamepass" },
-  { name: "2x Mastery", value: "450M", category: "gamepass" },
-  { name: "+1 Fruit Storage", value: "450M", category: "gamepass" },
-  { name: "Legendary Scrolls", value: "680M", category: "gamepass" },
-  { name: "Mythical Scrolls", value: "1.59B", category: "gamepass" },
-  { name: "Dark Blade", value: "1.02B", category: "gamepass" },
-  { name: "Fruit Notifier", value: "4.79B", category: "gamepass" },
+  { name: "Fast Boats", value: "300M", category: "gamepass", image: "https://i.postimg.cc/NjV6kR4S/Fast-Boats.png" },
+  { name: "2x Boss Drops", value: "300M", category: "gamepass", image: "https://i.postimg.cc/HxMBy616/2x-Boss-Drops.png" },
+  { name: "2x Money", value: "450M", category: "gamepass", image: "https://i.postimg.cc/rsLgC58M/2x-Money.png" },
+  { name: "2x Mastery", value: "450M", category: "gamepass", image: "https://i.postimg.cc/0jdntrQm/2x-Mastery.png" },
+  { name: "+1 Fruit Storage", value: "450M", category: "gamepass", image: "https://i.postimg.cc/hj7pmcdF/1-Fruit-Storage.png" },
+  { name: "Legendary Scrolls", value: "680M", category: "gamepass", image: "https://i.postimg.cc/YqDYtQJ0/Legendary-Scrolls.png" },
+  { name: "Mythical Scrolls", value: "1.59B", category: "gamepass", image: "https://i.postimg.cc/d3HktKNp/Mythical-Scrolls.png" },
+  { name: "Dark Blade", value: "1.02B", category: "gamepass", image: "https://i.postimg.cc/fLYfLkYF/Dark-Blade.png" },
+  { name: "Fruit Notifier", value: "4.79B", category: "gamepass", image: "https://i.postimg.cc/Zqdr70sR/Fruit-Notifer.png" },
 
 
   /* =========================

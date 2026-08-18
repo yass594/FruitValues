@@ -1,0 +1,321 @@
+<link rel="stylesheet" href="style.css">
+
+<header>
+  <div class="logo">Fruit<span>Values</span></div>
+
+  <nav>
+    <a href="#home">Accueil</a>
+    <a href="#values">Valeurs</a>
+    <a href="#calculator">Trade Calculator</a>
+    <a href="#discord">Discord</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        🍎 Blox Fruits Trading
+      </div>
+
+      <h1>
+        Les valeurs des fruits,<br>
+        <span>simplifiées.</span>
+      </h1>
+
+      <p>
+        Découvre les valeurs des fruits, compare tes trades
+        et trouve les meilleures opportunités de trading.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="button button-primary"
+          href="#values">
+          Voir les valeurs
+        </a>
+
+        <a
+          class="button button-secondary"
+          href="#calculator">
+          Trade Calculator
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       VALUES
+  ========================== -->
+
+  <section class="values" id="values">
+
+    <div class="section-title">
+
+      <h2>🍎 Fruit Values</h2>
+
+      <p>
+        Découvre les valeurs des fruits,
+        Game Pass et Limiteds.
+      </p>
+
+    </div>
+
+
+    <!-- CATÉGORIES -->
+
+    <div class="category-buttons">
+
+      <button
+        class="category-btn active"
+        data-category="fruit">
+        All Fruits
+      </button>
+
+      <button
+        class="category-btn"
+        data-category="gamepass">
+        Game Pass
+      </button>
+
+      <button
+        class="category-btn"
+        data-category="limited">
+        Limiteds
+      </button>
+
+    </div>
+
+
+    <!-- RECHERCHE -->
+
+    <div class="search-area">
+
+      <div class="search-box">
+
+        <span>🔎</span>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Rechercher un fruit..."
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- LISTE DES VALEURS -->
+
+    <div
+      class="values-grid"
+      id="valuesList">
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       TRADE CALCULATOR
+  ========================== -->
+
+  <section
+    class="calculator"
+    id="calculator">
+
+    <div class="section-title">
+
+      <h2>⚖️ Trade Calculator</h2>
+
+      <p>
+        Compare les valeurs de deux trades.
+      </p>
+
+    </div>
+
+
+    <div class="trade-calculator">
+
+
+      <!-- TON OFFRE -->
+
+      <div class="trade-side">
+
+        <h3>🟢 Ton offre</h3>
+
+        <div id="yourTradeList"></div>
+
+        <button
+          class="add-trade-button"
+          id="addYourFruit">
+          ➕ Ajouter un fruit
+        </button>
+
+        <p>
+          Total :
+          <strong id="yourTotal">0</strong>
+        </p>
+
+      </div>
+
+
+      <!-- RESULTAT -->
+
+      <div class="trade-result">
+
+        <div id="tradeResult">
+          VS
+        </div>
+
+      </div>
+
+
+      <!-- OFFRE ADVERSE -->
+
+      <div class="trade-side">
+
+        <h3>🔵 Offre adverse</h3>
+
+        <div id="theirTradeList"></div>
+
+        <button
+          class="add-trade-button"
+          id="addTheirFruit">
+          ➕ Ajouter un fruit
+        </button>
+
+        <p>
+          Total :
+          <strong id="theirTotal">0</strong>
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="calculate-button"
+      id="calculateTrade">
+      Calculer le trade
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       AJOUTER UN FRUIT
+  ========================== -->
+
+  <section class="add-fruit">
+
+    <h2>➕ Ajouter un fruit</h2>
+
+    <div class="fruit-form">
+
+      <input
+        type="text"
+        id="fruitName"
+        placeholder="Nom du fruit"
+      >
+
+      <input
+        type="number"
+        id="fruitValue"
+        placeholder="Valeur"
+      >
+
+      <button id="addFruitButton">
+        Ajouter
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SUGGESTIONS
+  ========================== -->
+
+  <datalist id="fruitSuggestions">
+
+    <option value="Rocket">
+    <option value="Spin">
+    <option value="Blade">
+    <option value="Spring">
+    <option value="Bomb">
+    <option value="Smoke">
+    <option value="Spike">
+    <option value="Flame">
+    <option value="Dark">
+    <option value="Sand">
+    <option value="Ice">
+    <option value="Rubber">
+    <option value="Eagle">
+    <option value="Ghost">
+    <option value="Light">
+    <option value="Diamond">
+    <option value="Quake">
+    <option value="Magma">
+    <option value="Love">
+    <option value="Spider">
+    <option value="Sound">
+    <option value="Phoenix">
+    <option value="Creation">
+    <option value="Blizzard">
+    <option value="Buddha">
+    <option value="Portal">
+    <option value="Shadow">
+    <option value="Spirit">
+    <option value="Mammoth">
+    <option value="Gravity">
+    <option value="Pain">
+    <option value="T-Rex">
+    <option value="Venom">
+    <option value="Dough">
+    <option value="Lightning">
+    <option value="Gas">
+    <option value="Yeti">
+    <option value="Tiger">
+    <option value="Control">
+    <option value="Kitsune">
+    <option value="East Dragon">
+    <option value="West Dragon">
+
+  </datalist>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer id="discord">
+
+  <div class="footer-logo">
+    Fruit<span>Values</span>
+  </div>
+
+  <p>
+    © 2026 FruitValues — Fan project Blox Fruits.
+  </p>
+
+</footer>
+
+
+<script src="script.js"></script>

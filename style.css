@@ -482,18 +482,23 @@ nav a:hover {
 
 .calculator {
   padding: 90px 6%;
+
   border-top: 1px solid #24243a;
+
   background: #0d0d17;
 }
 
 .trade-calculator {
   max-width: 1100px;
+
   margin: auto;
 
   display: grid;
+
   grid-template-columns: 1fr 140px 1fr;
 
   align-items: center;
+
   gap: 25px;
 }
 
@@ -513,6 +518,7 @@ nav a:hover {
     );
 
   border: 1px solid #29293e;
+
   border-radius: 18px;
 
   padding: 22px;
@@ -577,142 +583,107 @@ nav a:hover {
 .trade-items {
   min-height: 300px;
 
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 12px;
-
   margin-bottom: 15px;
 }
 
 
 /* =========================
-   TRADE ITEM
+   TRADE FRUIT ROW
 ========================= */
 
-.trade-item {
-  position: relative;
-
-  min-height: 135px;
-
+.trade-fruit-row {
   display: flex;
-
-  flex-direction: column;
 
   align-items: center;
 
-  justify-content: center;
+  gap: 8px;
 
-  padding: 12px;
+  width: 100%;
 
-  border-radius: 14px;
+  margin-bottom: 10px;
+}
 
-  background: #0f0f19;
+.trade-fruit-row input {
+  box-sizing: border-box;
+
+  height: 44px;
 
   border: 1px solid #29293e;
 
-  transition: 0.2s;
-}
+  border-radius: 9px;
 
-.trade-item:hover {
-  border-color: #7c4dff;
-
-  transform: translateY(-2px);
-}
-
-.trade-item-image {
-  width: 65px;
-  height: 65px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 8px;
-}
-
-.trade-item-image img {
-  width: 60px;
-  height: 60px;
-
-  object-fit: contain;
-}
-
-.trade-item-name {
-  max-width: 100%;
+  background: #0f0f19;
 
   color: white;
 
-  font-size: 13px;
+  outline: none;
 
-  font-weight: 700;
-
-  text-align: center;
-
-  white-space: nowrap;
-
-  overflow: hidden;
-
-  text-overflow: ellipsis;
+  font-size: 14px;
 }
 
-.trade-item-value {
-  margin-top: 4px;
+.trade-fruit-row input:focus {
+  border-color: #7c4dff;
+}
 
-  color: #a78bfa;
+.trade-fruit-name {
+  flex: 1;
 
-  font-size: 12px;
+  min-width: 0;
+
+  padding: 0 12px;
+}
+
+.trade-fruit-name::placeholder {
+  color: #707086;
+}
+
+.trade-fruit-value {
+  width: 110px;
+
+  padding: 0 10px;
+
+  color: #a78bfa !important;
 
   font-weight: 800;
+
+  text-align: center;
 }
 
 
 /* =========================
-   REMOVE ITEM
+   REMOVE TRADE FRUIT
 ========================= */
 
-.remove-trade-item {
-  position: absolute;
+.remove-trade-fruit {
+  width: 44px;
 
-  top: 6px;
-  right: 6px;
+  height: 44px;
 
-  width: 24px;
-  height: 24px;
+  flex-shrink: 0;
 
-  display: flex;
+  border: 1px solid #3a202a;
 
-  align-items: center;
-  justify-content: center;
-
-  border: none;
-
-  border-radius: 7px;
+  border-radius: 9px;
 
   background: #281820;
 
   color: #ff6b6b;
 
-  font-size: 12px;
-
-  font-weight: 900;
-
   cursor: pointer;
 
-  opacity: 0;
+  font-size: 14px;
+
+  font-weight: 900;
 
   transition: 0.2s;
 }
 
-.trade-item:hover .remove-trade-item {
-  opacity: 1;
-}
-
-.remove-trade-item:hover {
+.remove-trade-fruit:hover {
   background: #42202b;
+
+  border-color: #ff6b6b;
+
+  transform: translateY(-1px);
 }
 
 
@@ -728,6 +699,7 @@ nav a:hover {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 7px;
@@ -772,6 +744,7 @@ nav a:hover {
   flex-direction: column;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 12px;
@@ -779,11 +752,13 @@ nav a:hover {
 
 .trade-result-circle {
   width: 90px;
+
   height: 90px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   border-radius: 50%;
@@ -906,6 +881,7 @@ nav a:hover {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   padding: 20px;
@@ -946,6 +922,7 @@ nav a:hover {
   display: flex;
 
   align-items: center;
+
   justify-content: space-between;
 
   padding: 20px 22px;
@@ -971,6 +948,7 @@ nav a:hover {
 
 .trade-selector-header button {
   width: 36px;
+
   height: 36px;
 
   border: none;
@@ -1103,6 +1081,7 @@ nav a:hover {
 
 .trade-selector-item img {
   width: 65px;
+
   height: 65px;
 
   object-fit: contain;
@@ -1132,214 +1111,6 @@ nav a:hover {
   font-size: 12px;
 
   font-weight: 800;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-  .trade-calculator {
-    grid-template-columns: 1fr;
-
-    gap: 18px;
-  }
-
-  .trade-side {
-    min-height: 0;
-  }
-
-  .trade-items {
-    min-height: 150px;
-  }
-
-  .trade-result {
-    order: 2;
-  }
-
-  .trade-result-circle {
-    width: 75px;
-    height: 75px;
-  }
-
-  .trade-selector {
-    max-height: 90vh;
-  }
-
-  .trade-selector-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-
-    padding: 0 15px 15px;
-  }
-
-  .trade-selector-search {
-    margin: 15px;
-  }
-
-  .trade-selector-header {
-    padding: 16px;
-  }
-
-  .remove-trade-item {
-    opacity: 1;
-  }
-
-}
-
-/* =========================
-   MULTI TRADE
-========================= */
-
-.trade-fruit-row {
-  display: flex;
-
-  gap: 8px;
-
-  margin-bottom: 10px;
-}
-
-.trade-fruit-row input {
-  min-width: 0;
-}
-
-.trade-fruit-name {
-  flex: 1;
-}
-
-.trade-fruit-value {
-  width: 110px;
-}
-
-.remove-trade-fruit {
-  width: 38px;
-
-  flex-shrink: 0;
-
-  border: none;
-
-  border-radius: 8px;
-
-  background: #2a1b2b;
-
-  color: #ff6b6b;
-
-  cursor: pointer;
-
-  font-weight: bold;
-}
-
-.remove-trade-fruit:hover {
-  background: #3a2020;
-}
-
-.add-trade-button {
-  width: 100%;
-
-  margin-top: 8px;
-
-  padding: 11px;
-
-  border: 1px solid #39315f;
-
-  border-radius: 9px;
-
-  background: #17152b;
-
-  color: #a78bfa;
-
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.add-trade-button:hover {
-  background: #211d3d;
-
-  transform: translateY(-1px);
-}
-
-.trade-side > p {
-  margin-top: 18px;
-
-  color: #85859b;
-}
-
-.trade-side > p strong {
-  color: #a78bfa;
-}
-
-
-/* =========================
-   TRADE RESULT
-========================= */
-
-.trade-result {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-}
-
-#tradeResult {
-  width: 75px;
-  height: 75px;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 50%;
-
-  background: #17152b;
-
-  border: 1px solid #39315f;
-
-  font-weight: 900;
-
-  font-size: 18px;
-
-  color: #a78bfa;
-}
-
-
-/* =========================
-   CALCULATE BUTTON
-========================= */
-
-.calculate-button {
-  display: block;
-
-  margin: 30px auto 0;
-
-  padding: 14px 28px;
-
-  border: none;
-
-  border-radius: 10px;
-
-  background: #7c4dff;
-
-  color: white;
-
-  font-weight: 700;
-
-  font-size: 15px;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.calculate-button:hover {
-  background: #936fff;
-
-  transform: translateY(-2px);
 }
 
 
@@ -1471,6 +1242,7 @@ footer {
 
   .category-btn {
     padding: 10px 15px;
+
     font-size: 14px;
   }
 
@@ -1497,6 +1269,7 @@ footer {
 
   .trade-fruit-name {
     width: 100%;
+
     flex: none;
   }
 
@@ -1515,4 +1288,27 @@ footer {
     width: min(100%, 320px);
   }
 
+  .trade-selector {
+    max-height: 90vh;
+  }
+
+  .trade-selector-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    padding: 0 15px 15px;
+  }
+
+  .trade-selector-search {
+    margin: 15px;
+  }
+
+  .trade-selector-header {
+    padding: 16px;
+  }
+
+  .remove-trade-fruit {
+    width: 44px;
+    height: 44px;
+  }
 }
